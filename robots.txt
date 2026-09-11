@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sushantmonga.in/sitemap.xml
