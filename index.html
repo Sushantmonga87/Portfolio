@@ -550,20 +550,7 @@ html.dark .logo-light { display: none; }
 
 /* ============================= */  
 /* About                          */  
-/* ============================= */  
-.about-grid{  
-  display:grid;  
-  grid-template-columns:1fr 1fr;   
-  gap:64px;  
-  align-items:center;   
-}  
-@media (max-width:860px){ .about-grid{grid-template-columns:1fr; gap:40px;} }  
-.about-text p{  
-  font-size:17px;  
-  color:var(--text-muted);  
-  margin-bottom:18px;  
-  max-width:60ch;  
-}  
+/* ============================= */   
 .about-text strong{color:var(--text); font-weight:600;}  
 .about-tags{  
   display:flex; flex-wrap:wrap; gap:8px; margin-top:24px;  
@@ -1218,10 +1205,6 @@ footer{
   <div class="hero-photo">  
     <img src="/img/sushantmonga.jpeg" alt="Sushant Monga, Full-Stack PHP Developer" loading="eager">  
   </div>  
-  <div class="hero-float-badge glass top">  
-    <div class="hero-float-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div>  
-    <div><b>Business Logic</b><span>Dashboards & ERPs</span></div>  
-  </div>  
   <div class="hero-float-badge glass bottom">  
     <div class="hero-float-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>  
     <div><b>Server & DB</b><span>Practical PHP & MySQL</span></div>  
@@ -1273,28 +1256,7 @@ footer{
           <span class="about-tag">AJAX</span>  
           <span class="about-tag">DataTables</span>  
         </div>  
-      </div>  <div class="about-panel glass reveal">  
-    <div class="about-panel-row">  
-      <div class="about-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>  
-      <div>  
-        <div class="about-panel-label">Development Focus</div>  
-        <div class="about-panel-value">Full-Stack Engineering<span>ERPs, CRMs, Custom Dashboards</span></div>  
-      </div>  
-    </div>  
-    <div class="about-panel-row">  
-      <div class="about-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5v-1.94c-2.78.62-3.37-1.37-3.37-1.37-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.36 1.12 2.94.85.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 015 0c1.9-1.33 2.74-1.05 2.74-1.05.56 1.42.21 2.47.1 2.73.65.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.94.68 1.9v2.82c0 .28.18.61.69.5A10.26 10.26 0 0022 12.25C22 6.58 17.52 2 12 2z"/></svg></div>  
-      <div>  
-        <div class="about-panel-label">Open Source / Repositories</div>  
-        <div class="about-panel-value">GitHub Org: Dukeinfo<span>Projects: SchoolERP & more</span></div>  
-      </div>  
-    </div>  
-    <div class="about-panel-row">  
-      <div class="about-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>  
-      <div>  
-        <div class="about-panel-label">Location</div>  
-        <div class="about-panel-value">Available for remote work<span>& contract opportunities</span></div>  
-      </div>  
-    </div>  
+      </div>  <div class="about-panel glass reveal">    
   </div>  
 </div>  
 
