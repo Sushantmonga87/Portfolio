@@ -86,6 +86,12 @@
       font-style: italic;
       color: var(--accent);
     }
+    
+    /* Clean Ampersand for Playfair Display */
+    .simple-amp {
+      font-family: var(--font-body);
+      font-weight: 500;
+    }
 
     .container {
       max-width: 1200px;
@@ -118,7 +124,7 @@
     .section-heading.center { text-align: center; margin-bottom: 56px; }
 
     /* =========================================================
-       REVEAL & SCROLL ANIMATIONS (UPGRADED)
+       REVEAL & SCROLL ANIMATIONS
        ========================================================= */
     .reveal {
       opacity: 0;
@@ -468,7 +474,7 @@
     .service-card p { font-size: 14.5px; color: var(--text-muted); line-height: 1.6; }
 
     /* =========================================================
-       SKILLS GRID
+       SKILLS GRID SECTION
        ========================================================= */
     .skills-grid {
       display: grid;
@@ -511,7 +517,7 @@
     }
 
     /* =========================================================
-       NEW: ORBITING TECHNOLOGIES STACK SECTION
+       ORBITING TECHNOLOGIES STACK SECTION
        ========================================================= */
     .tech-wrapper {
       position: relative;
@@ -527,7 +533,6 @@
       width: 620px;
       height: 620px;
     }
-    /* Scale down purely via CSS for mobile */
     @media (max-width: 768px) {
       .tech-wrapper { height: 500px; }
       .tech-orbit-container { transform: scale(0.7); }
@@ -537,7 +542,6 @@
       .tech-orbit-container { transform: scale(0.5); }
     }
 
-    /* Central Hub */
     .tech-core {
       position: absolute;
       top: 50%; left: 50%;
@@ -558,7 +562,6 @@
       box-shadow: 0 0 40px rgba(79, 70, 229, 0.4);
     }
 
-    /* Orbit Rings */
     .tech-ring {
       position: absolute;
       top: 50%; left: 50%;
@@ -571,7 +574,6 @@
     .ring-2 { width: 440px; height: 440px; }
     .ring-3 { width: 620px; height: 620px; }
 
-    /* Keyframes for orbits */
     @keyframes orbit-spin {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
@@ -581,7 +583,6 @@
       to { transform: rotate(0deg); }
     }
 
-    /* Spinners inside the rings */
     .spinner {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -595,11 +596,9 @@
     .spin-reverse-slow { animation: orbit-spin-reverse 35s linear infinite; }
     .spin-reverse-slower { animation: orbit-spin-reverse 45s linear infinite; }
 
-    /* Orbit Badges */
     .tech-badge {
       position: absolute;
       width: 90px; height: 40px;
-      /* Center exactly on the line: shift up/left by half its size */
       margin-top: -20px; margin-left: -45px;
       background: var(--bg);
       border: 2px solid var(--accent);
@@ -610,19 +609,17 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
     
-    /* Absolute Positions on the circle */
     .pos-top { top: 0; left: 50%; }
     .pos-bottom { top: 100%; left: 50%; }
     .pos-left { top: 50%; left: 0; }
     .pos-right { top: 50%; left: 100%; }
     
-    /* 6-point Hexagon coordinates for Outer Ring */
-    .pos-hex-1 { top: 0; left: 50%; } /* Top */
-    .pos-hex-2 { top: 25%; left: 93.3%; } /* Top Right */
-    .pos-hex-3 { top: 75%; left: 93.3%; } /* Bottom Right */
-    .pos-hex-4 { top: 100%; left: 50%; } /* Bottom */
-    .pos-hex-5 { top: 75%; left: 6.7%; } /* Bottom Left */
-    .pos-hex-6 { top: 25%; left: 6.7%; } /* Top Left */
+    .pos-hex-1 { top: 0; left: 50%; } 
+    .pos-hex-2 { top: 25%; left: 93.3%; } 
+    .pos-hex-3 { top: 75%; left: 93.3%; } 
+    .pos-hex-4 { top: 100%; left: 50%; } 
+    .pos-hex-5 { top: 75%; left: 6.7%; } 
+    .pos-hex-6 { top: 25%; left: 6.7%; } 
 
     /* =========================================================
        MARQUEE
@@ -841,44 +838,87 @@
     }
 
     /* =========================================================
-       CONTACT SECTION & FORMSPREE
+       NEW: CREATIVE CONTACT SECTION
        ========================================================= */
-    .contact-wrapper {
-      padding: 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+    .contact-container {
       background: var(--bg);
-      align-items: start;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lift);
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
     }
-    @media (max-width: 900px) { .contact-wrapper { grid-template-columns: 1fr; } }
-    
-    .contact-box h2 { margin-bottom: 20px; }
-    .contact-box p { font-size: 16px; color: var(--text-muted); margin-bottom: 36px; max-width: 400px;}
-    .email-link {
-      display: block;
-      font-family: var(--font-heading);
-      font-size: clamp(20px, 4vw, 32px);
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 32px;
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 6px;
-      word-break: break-all;
+    @media (max-width: 900px) { 
+      .contact-container { grid-template-columns: 1fr; } 
     }
-    .contact-links { display: flex; gap: 20px; }
-    .contact-links a { font-size: 14.5px; font-weight: 600; text-transform: uppercase; border-bottom: 1px solid var(--text-main); padding-bottom: 2px;}
-    
-    /* Form Styles */
-    .contact-form {
-      background: var(--bg-soft);
-      padding: 40px; 
-      border-radius: 16px;
-      width: 100%;
+
+    /* Left Side - Creative Info Card */
+    .contact-info-card {
+      background: linear-gradient(145deg, var(--accent) 0%, #312E81 100%);
+      color: #ffffff;
+      padding: 56px 40px;
+      position: relative;
     }
-    @media (max-width: 600px) { .contact-form { padding: 32px 20px; } }
-    
+    .contact-info-card::after {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at top right, rgba(255,255,255,0.1), transparent 50%);
+      pointer-events: none;
+    }
+    .contact-info-card h2 { color: #fff; margin-bottom: 16px; }
+    .contact-info-card em { color: #A5B4FC; }
+    .contact-info-card .desc {
+      font-size: 15px; color: rgba(255,255,255,0.85);
+      line-height: 1.7; margin-bottom: 40px;
+    }
+
+    .contact-methods {
+      display: flex; flex-direction: column; gap: 32px;
+      position: relative; z-index: 2;
+    }
+    .method { display: flex; align-items: center; gap: 16px; }
+    .method .icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .method .icon svg { width: 20px; height: 20px; color: #fff; }
+    .method span {
+      display: block; font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.6); margin-bottom: 4px;
+    }
+    .method a, .method .text {
+      font-size: 15px; font-weight: 600; color: #fff;
+      transition: color 0.2s ease;
+    }
+    .method a:hover { color: #A5B4FC; }
+
+    .social-links-alt {
+      display: flex; gap: 16px; margin-top: 56px;
+      position: relative; z-index: 2;
+    }
+    .social-links-alt a {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s ease; color: #fff;
+    }
+    .social-links-alt a:hover { background: #fff; color: var(--accent); transform: translateY(-3px); }
+    .social-links-alt a svg { width: 18px; height: 18px; }
+
+    /* Right Side - Form Container */
+    .contact-form-container {
+      padding: 56px 48px;
+      background: #fff;
+    }
+    @media (max-width: 600px) { .contact-form-container { padding: 40px 24px; } }
+
+    .form-row-2 {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    @media (max-width: 600px) { .form-row-2 { grid-template-columns: 1fr; gap: 0; } }
+
     .form-group { margin-bottom: 20px; }
     .form-group label {
       display: block; font-size: 12.5px; font-weight: 700;
@@ -886,40 +926,23 @@
       margin-bottom: 8px; color: var(--text-muted);
     }
     .form-control {
-      width: 100%;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      padding: 14px 16px;
-      border-radius: 8px;
-      font-family: var(--font-body);
-      font-size: 14.5px;
-      color: var(--text-main);
-      outline: none;
+      width: 100%; background: var(--bg); border: 1px solid var(--border);
+      padding: 14px 16px; border-radius: 8px; font-family: var(--font-body);
+      font-size: 14.5px; color: var(--text-main); outline: none;
       transition: border-color 0.3s ease;
     }
     .form-control:focus { border-color: var(--accent); }
     textarea.form-control { min-height: 120px; resize: vertical; }
     
     .btn-submit {
-      width: 100%;
-      background: var(--accent);
-      color: #fff;
-      padding: 14px 16px;
-      border-radius: 8px;
-      font-size: 14.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: background 0.3s ease;
-      margin-top: 8px;
+      width: 100%; background: var(--text-main); color: #fff;
+      padding: 16px; border-radius: 8px; font-size: 14.5px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      transition: background 0.3s ease; margin-top: 8px;
     }
-    .btn-submit:hover { background: var(--accent-hover); }
+    .btn-submit:hover { background: var(--accent); }
     
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 32px 20px;
-    }
+    .form-success { display: none; text-align: center; padding: 32px 20px; }
     .form-success.show { display: block; }
     .form-success h3 { font-size: 22px; margin-bottom: 8px; color: var(--accent);}
 
@@ -1031,7 +1054,7 @@
         <div class="hero-copy reveal-left">
           <p class="eyebrow">FULL-STACK PHP DEVELOPER</p>
           <h2 class="hero-name">Sushant Monga</h2>
-          <h1>Building <em>reliable</em> & scalable web applications.</h1>
+          <h1>Building <em>reliable</em> <span class="simple-amp">&amp;</span> scalable web applications.</h1>
           <p class="hero-text">
             I build clean, responsive, and business-focused web applications using PHP, Laravel, MySQL, and modern web technologies.
           </p>
@@ -1040,10 +1063,10 @@
             <a class="btn btn-ghost" href="#contact">Let's Talk <span>↗</span></a>
           </div>
           <div class="quick-stats">
-            <div class="stat-box"><strong class="counter-num" data-target="2">0 <span class="plus">+</span></strong><span class="label">Years Experience</span></div>
-            <div class="stat-box"><strong class="counter-num" data-target="5">0 <span class="plus">+</span></strong><span class="label">Projects Delivered</span></div>
-            <div class="stat-box"><strong class="counter-num" data-target="10">0 <span class="plus">+</span></strong><span class="label">Technologies</span></div>
-            <div class="stat-box"><strong class="counter-num" data-target="100">0 <span class="plus">%</span></strong><span class="label">Satisfaction</span></div>
+            <div class="stat-box"><strong class="counter-num" data-target="2">0</strong><strong><span class="plus">+</span></strong><span class="label">Years Experience</span></div>
+            <div class="stat-box"><strong class="counter-num" data-target="5">0</strong><strong><span class="plus">+</span></strong><span class="label">Projects Delivered</span></div>
+            <div class="stat-box"><strong class="counter-num" data-target="10">0</strong><strong><span class="plus">+</span></strong><span class="label">Technologies</span></div>
+            <div class="stat-box"><strong class="counter-num" data-target="100">0</strong><strong><span class="plus">%</span></strong><span class="label">Satisfaction</span></div>
           </div>
         </div>
         
@@ -1081,7 +1104,7 @@
               I don't just create UI — I work across the stack. From designing database schemas in MySQL, writing complex business logic in PHP and Laravel, handling API integrations, all the way to deploying to production via cPanel and Apache.
             </p>
             <div class="about-points">
-              <span><i>✦</i> PHP & Laravel</span>
+              <span><i>✦</i> PHP <span class="simple-amp">&amp;</span> Laravel</span>
               <span><i>✦</i> MySQL Database</span>
               <span><i>✦</i> REST APIs</span>
               <span><i>✦</i> Server Deployment</span>
@@ -1106,7 +1129,7 @@
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
             </div>
-            <h3>Custom PHP & Laravel</h3>
+            <h3>Custom PHP <span class="simple-amp">&amp;</span> Laravel</h3>
             <p>Developing secure, scalable backend architectures from scratch using Core PHP and the Laravel framework.</p>
           </div>
           
@@ -1114,7 +1137,7 @@
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
             </div>
-            <h3>School ERPs & Portals</h3>
+            <h3>School ERPs <span class="simple-amp">&amp;</span> Portals</h3>
             <p>Building comprehensive education-management systems, handling fee ledgers, student profiles, and real-time reports.</p>
           </div>
           
@@ -1122,7 +1145,7 @@
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
             </div>
-            <h3>Admin Dashboards & CRM</h3>
+            <h3>Admin Dashboards <span class="simple-amp">&amp;</span> CRM</h3>
             <p>Creating intuitive backend dashboards and lead-management CRMs to streamline internal company operations.</p>
           </div>
           
@@ -1138,7 +1161,7 @@
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
             </div>
-            <h3>Bug Fixing & Maintenance</h3>
+            <h3>Bug Fixing <span class="simple-amp">&amp;</span> Maintenance</h3>
             <p>Troubleshooting Apache configs, resolving MySQL connection errors, handling legacy code, and fixing JS/AJAX logic.</p>
           </div>
           
@@ -1146,7 +1169,7 @@
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
             </div>
-            <h3>API & Database Integration</h3>
+            <h3>API <span class="simple-amp">&amp;</span> Database Integration</h3>
             <p>Connecting platforms via REST APIs and designing complex relational database schemas for optimal performance.</p>
           </div>
           
@@ -1163,53 +1186,33 @@
           <p class="eyebrow">03 — CAPABILITIES</p>
           <h2>My core <em>expertise.</em></h2>
         </div>
-       <div class="skills-grid">
-          <div class="skill reveal">
+        <div class="skills-grid">
+          <div class="skill reveal-scale">
             <span class="num">01</span>
             <h3>Backend Development</h3>
-            <p>Core PHP, Laravel Framework, complex business logic & algorithms.</p>
+            <p>Core PHP, Laravel Framework, complex business logic <span class="simple-amp">&amp;</span> algorithms.</p>
           </div>
-          <div class="skill reveal">
+          <div class="skill reveal-scale">
             <span class="num">02</span>
             <h3>Databases</h3>
             <p>MySQL, relational schemas, complex queries, and data structuring.</p>
           </div>
-          <div class="skill reveal">
+          <div class="skill reveal-scale">
             <span class="num">03</span>
-            <h3>Frontend & UI</h3>
+            <h3>Frontend <span class="simple-amp">&amp;</span> UI</h3>
             <p>HTML5, CSS3, JavaScript, AJAX, Bootstrap, and DataTables.</p>
           </div>
-          <div class="skill reveal">
+          <div class="skill reveal-scale">
             <span class="num">04</span>
-            <h3>API & Integrations</h3>
+            <h3>API <span class="simple-amp">&amp;</span> Integrations</h3>
             <p>RESTful APIs, JSON parsing, and third-party service connections.</p>
-          </div>
-          <div class="skill reveal">
-            <span class="num">05</span>
-            <h3>Infrastructure</h3>
-            <p>Git, GitHub, Apache configs, .htaccess, and cPanel deployments.</p>
-          </div>
-          <div class="skill reveal">
-            <span class="num">06</span>
-            <h3>School ERPs</h3>
-            <p>Custom education systems, fee ledgers, and student administration.</p>
-          </div>
-          <div class="skill reveal">
-            <span class="num">07</span>
-            <h3>Reporting & Data</h3>
-            <p>PDF/Excel database exports, file handling, and dynamic dashboards.</p>
-          </div>
-          <div class="skill reveal">
-            <span class="num">08</span>
-            <h3>Marketing Tech</h3>
-            <p>Meta Ads tracking, lead management CRMs, and SEO fundamentals.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- =========================================================
-         NEW: ORBITING TECHNOLOGIES SECTION
+         ORBITING TECHNOLOGIES STACK SECTION
          ========================================================= -->
     <section id="tech-stack" class="section">
       <div class="container">
@@ -1258,6 +1261,30 @@
 
       </div>
     </section>
+
+    <!-- =========================================================
+         MARQUEE SECTION
+         ========================================================= -->
+    <div class="marquee-section">
+      <div class="marquee-inner">
+        <div class="marquee-content">
+          <span class="m-text">Laravel</span><span class="m-dot"></span>
+          <span class="m-text">Core PHP</span><span class="m-dot"></span>
+          <span class="m-text">MySQL</span><span class="m-dot"></span>
+          <span class="m-text">School ERPs</span><span class="m-dot"></span>
+          <span class="m-text">REST APIs</span><span class="m-dot"></span>
+          <span class="m-text">JavaScript</span><span class="m-dot"></span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span class="m-text">Laravel</span><span class="m-dot"></span>
+          <span class="m-text">Core PHP</span><span class="m-dot"></span>
+          <span class="m-text">MySQL</span><span class="m-dot"></span>
+          <span class="m-text">School ERPs</span><span class="m-dot"></span>
+          <span class="m-text">REST APIs</span><span class="m-dot"></span>
+          <span class="m-text">JavaScript</span><span class="m-dot"></span>
+        </div>
+      </div>
+    </div>
 
     <!-- =========================================================
          PROJECTS SECTION
@@ -1333,7 +1360,7 @@
           <div class="timeline-item reveal-left">
             <div class="time">JULY 2025 — PRESENT</div>
             <div>
-              <h3>Web Development (PHP & Laravel)</h3>
+              <h3>Web Development (PHP <span class="simple-amp">&amp;</span> Laravel)</h3>
               <p class="muted">Duke Infosys</p>
               <ul>
                 <li>Designing, developing, and deploying robust web solutions for clients.</li>
@@ -1361,29 +1388,7 @@
         </div>
       </div>
     </section>
-    <!-- =========================================================
-         MARQUEE SECTION
-         ========================================================= -->
-    <div class="marquee-section">
-      <div class="marquee-inner">
-        <div class="marquee-content">
-          <span class="m-text">Laravel</span><span class="m-dot"></span>
-          <span class="m-text">Core PHP</span><span class="m-dot"></span>
-          <span class="m-text">MySQL</span><span class="m-dot"></span>
-          <span class="m-text">School ERPs</span><span class="m-dot"></span>
-          <span class="m-text">REST APIs</span><span class="m-dot"></span>
-          <span class="m-text">JavaScript</span><span class="m-dot"></span>
-        </div>
-        <div class="marquee-content" aria-hidden="true">
-          <span class="m-text">Laravel</span><span class="m-dot"></span>
-          <span class="m-text">Core PHP</span><span class="m-dot"></span>
-          <span class="m-text">MySQL</span><span class="m-dot"></span>
-          <span class="m-text">School ERPs</span><span class="m-dot"></span>
-          <span class="m-text">REST APIs</span><span class="m-dot"></span>
-          <span class="m-text">JavaScript</span><span class="m-dot"></span>
-        </div>
-      </div>
-    </div>
+
     <!-- =========================================================
          DEVELOPER JOURNEY (HORIZONTAL LINE)
          ========================================================= -->
@@ -1404,13 +1409,13 @@
           
           <div class="journey-step">
             <div class="journey-dot"></div>
-            <h4>Core PHP & Databases</h4>
+            <h4>Core PHP <span class="simple-amp">&amp;</span> Databases</h4>
             <p>Connecting interfaces to MySQL databases, writing CRUD systems and custom logic.</p>
           </div>
           
           <div class="journey-step is-current">
             <div class="journey-dot"></div>
-            <h4>Laravel & Enterprise ERPs</h4>
+            <h4>Laravel <span class="simple-amp">&amp;</span> Enterprise ERPs</h4>
             <p>Developing scalable business applications (SchoolERP), authentication, and dashboards.</p>
           </div>
           
@@ -1425,49 +1430,102 @@
     </section>
 
     <!-- =========================================================
-         CONTACT SECTION
+         NEW CREATIVE CONTACT SECTION
          ========================================================= -->
     <section id="contact" class="section soft">
-      <div class="container contact-wrapper reveal-scale">
-        <div class="contact-box">
-          <p class="eyebrow">08 — CONTACT</p>
-          <h2>Have a project or<br /><em>opportunity?</em></h2>
-          <p>
-            Looking for a reliable PHP/Laravel developer for a custom application, database integration, or a full-stack project? Let's connect.
-          </p>
-          <a class="email-link" href="mailto:sushantmonga87@gmail.com">sushantmonga87@gmail.com ↗</a>
-          <div class="contact-links">
-            <a href="tel:+919306226635" target="_blank">Call/Whatsapp ↗</a>
-            <a href="https://github.com/Sushantmonga87" target="_blank">GitHub ↗</a>
-            <a href="https://www.linkedin.com/in/sushant-monga-8a757b227/" target="_blank">LinkedIn ↗</a>
-          </div>
-        </div>
-        
-        <!-- Formspree Contact Form -->
-        <div class="contact-form">
-          <!-- IMPORTANT: REPLACE THE ACTION URL BELOW WITH YOUR FORMSPREE ENDPOINT -->
-          <form id="contactForm" action="YOUR_FORMSPREE_URL_HERE" method="POST">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required>
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" class="form-control" placeholder="Tell me about your project..." required></textarea>
-            </div>
-            <button type="submit" class="btn-submit">
-              <span>Send Message</span>
-            </button>
-          </form>
+      <div class="container reveal-scale">
+        <div class="contact-container">
           
-          <div class="form-success" id="formSuccess">
-            <h3>Message sent successfully!</h3>
-            <p>Thanks for reaching out! I'll get back to you soon.</p>
+          <!-- Left Side: Creative Info Card -->
+          <div class="contact-info-card">
+            <p class="eyebrow" style="color: rgba(255,255,255,0.8);">08 — CONTACT</p>
+            <h2>Let's build something <br><em>together.</em></h2>
+            <p class="desc">
+              Looking for a reliable PHP/Laravel developer for a custom application, database integration, or a full-stack project? I'm currently available for new opportunities.
+            </p>
+
+            <div class="contact-methods">
+              <div class="method">
+                <div class="icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div>
+                  <span>Email Me</span>
+                  <a href="mailto:sushantmonga87@gmail.com">sushantmonga87@gmail.com</a>
+                </div>
+              </div>
+              
+              <div class="method">
+                <div class="icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div>
+                  <span>Call / WhatsApp</span>
+                  <a href="tel:+919306226635">+91 93062-26635</a>
+                </div>
+              </div>
+
+              <div class="method">
+                <div class="icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div>
+                  <span>Location</span>
+                  <div class="text">Mohali, Punjab, India</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-links-alt">
+              <a href="https://github.com/Sushantmonga87" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5v-1.94c-2.78.62-3.37-1.37-3.37-1.37-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.36 1.12 2.94.85.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 015 0c1.9-1.33 2.74-1.05 2.74-1.05.56 1.42.21 2.47.1 2.73.65.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.94.68 1.9v2.82c0 .28.18.61.69.5A10.26 10.26 0 0022 12.25C22 6.58 17.52 2 12 2z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/sushant-monga-8a757b227/" target="_blank" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM3 9h4v12H3V9zm7 0h3.8v1.63h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.97V21h-4V9z"/></svg>
+              </a>
+            </div>
           </div>
+          
+          <!-- Right Side: Contact Form -->
+          <div class="contact-form-container">
+            <form id="contactForm" action="YOUR_FORMSPREE_URL_HERE" method="POST">
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required>
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" name="phone" class="form-control" placeholder="+91 12345 67890">
+                </div>
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <input type="text" id="subject" name="subject" class="form-control" placeholder="Project Inquiry" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" class="form-control" placeholder="Tell me about your project..." required></textarea>
+              </div>
+              <button type="submit" class="btn-submit">
+                <span>Send Message</span>
+              </button>
+            </form>
+            
+            <div class="form-success" id="formSuccess">
+              <h3>Message sent successfully!</h3>
+              <p>Thanks for reaching out! I'll get back to you soon.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1479,7 +1537,7 @@
   <footer>
     <div class="container footer-inner">
       <span>© <span id="year"></span> Sushant Monga.</span>
-      <span>Designed & built with logic.</span>
+      <span>Designed <span class="simple-amp">&amp;</span> built with logic.</span>
     </div>
   </footer>
 
