@@ -550,8 +550,21 @@ html.dark .logo-light { display: none; }
 
 /* ============================= */  
 /* About                          */  
-/* ============================= */   
-.about-text strong{color:var(--text); font-weight:600;line-height:1.5;}  
+/* ============================= */  
+.about-grid{  
+  display:grid;  
+  grid-template-columns:1fr 1fr;   
+  gap:64px;  
+  align-items:center;   
+}  
+@media (max-width:860px){ .about-grid{grid-template-columns:1fr; gap:40px;} }  
+.about-text p{  
+  font-size:17px;  
+  color:var(--text-muted);  
+  margin-bottom:18px;  
+  max-width:60ch;  
+}  
+.about-text strong{color:var(--text); font-weight:600;}  
 .about-tags{  
   display:flex; flex-wrap:wrap; gap:8px; margin-top:24px;  
 }  
@@ -1086,8 +1099,8 @@ footer{
 .back-to-top:hover{background:linear-gradient(100deg,var(--accent),var(--accent-2)); color:#fff; transform:translateY(-4px); box-shadow: var(--shadow-glass);}  
 .back-to-top svg{width:18px;height:18px;}  
 
-/* WhatsApp Button */
-.floating-whatsapp {
+/* WhatsApp Floating Button & Chatbox */
+.wa-btn {
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -1095,33 +1108,192 @@ footer{
   height: 60px;
   background-color: #25D366;
   color: #FFF;
+  border: none;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 10px 24px rgba(37, 211, 102, 0.35);
   z-index: 1000;
+  cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
 }
-.floating-whatsapp:hover {
+.wa-btn:hover {
   transform: scale(1.1) translateY(-5px);
   box-shadow: 0 14px 32px rgba(37, 211, 102, 0.5);
-  color: #FFF;
 }
-.floating-whatsapp svg {
+.wa-btn svg {
   width: 34px;
   height: 34px;
 }
+
+.wa-chatbox {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 350px;
+  max-width: calc(100vw - 40px);
+  background: #FFF;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lift);
+  z-index: 1000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.wa-chatbox.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.wa-header {
+  background: #008069;
+  color: #FFF;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wa-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.wa-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.wa-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.wa-info { display: flex; flex-direction: column; }
+.wa-name { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 16px; }
+.wa-status { font-size: 12px; opacity: 0.9; margin-top: 2px; }
+
+.wa-close {
+  background: none;
+  border: none;
+  color: #FFF;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+.wa-close:hover { opacity: 1; }
+
+.wa-body {
+  background: #e5ddd5;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22673 0L0 1.22673L18.7733 20L20 18.7733L1.22673 0z' fill='%23d3cbc3' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+  padding: 20px 16px;
+  height: 240px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.wa-message {
+  background: #FFF;
+  padding: 10px 14px;
+  border-radius: 0 12px 12px 12px;
+  max-width: 85%;
+  align-self: flex-start;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  position: relative;
+}
+.wa-message::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -8px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 8px 10px 0;
+  border-color: transparent #FFF transparent transparent;
+}
+.wa-message-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #008069;
+  margin-bottom: 4px;
+}
+.wa-message-text {
+  font-size: 14px;
+  color: #111;
+  line-height: 1.4;
+}
+.wa-message-time {
+  font-size: 11px;
+  color: #888;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.wa-footer {
+  padding: 12px;
+  background: #f0f2f5;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.wa-input {
+  flex-grow: 1;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 16px;
+  font-size: 14.5px;
+  outline: none;
+  color: #333;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.wa-input::placeholder { color: #888; }
+.wa-send {
+  background: #008069;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+.wa-send:hover {
+  transform: scale(1.05);
+  background: #006653;
+}
+.wa-send svg { width: 18px; height: 18px; margin-left: 2px; }
+
 @media (max-width: 640px) {
-  .floating-whatsapp {
+  .wa-btn {
     bottom: 20px;
     right: 20px;
     width: 54px;
     height: 54px;
   }
-  .floating-whatsapp svg {
-    width: 28px;
-    height: 28px;
+  .wa-btn svg { width: 28px; height: 28px; }
+  .wa-chatbox {
+    bottom: 84px;
+    right: 20px;
+    width: calc(100vw - 40px);
   }
 }
 </style>  
@@ -1205,6 +1377,10 @@ footer{
   <div class="hero-photo">  
     <img src="/img/sushantmonga.jpeg" alt="Sushant Monga, Full-Stack PHP Developer" loading="eager">  
   </div>  
+  <div class="hero-float-badge glass top">  
+    <div class="hero-float-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div>  
+    <div><b>Business Logic</b><span>Dashboards & ERPs</span></div>  
+  </div>  
   <div class="hero-float-badge glass bottom">  
     <div class="hero-float-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>  
     <div><b>Server & DB</b><span>Practical PHP & MySQL</span></div>  
@@ -1256,9 +1432,32 @@ footer{
           <span class="about-tag">AJAX</span>  
           <span class="about-tag">DataTables</span>  
         </div>  
-      </div>   
+      </div>  <div class="about-panel glass reveal">  
+    <div class="about-panel-row">  
+      <div class="about-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>  
+      <div>  
+        <div class="about-panel-label">Development Focus</div>  
+        <div class="about-panel-value">Full-Stack Engineering<span>ERPs, CRMs, Custom Dashboards</span></div>  
+      </div>  
+    </div>  
+    <div class="about-panel-row">  
+      <div class="about-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5v-1.94c-2.78.62-3.37-1.37-3.37-1.37-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.36 1.12 2.94.85.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 015 0c1.9-1.33 2.74-1.05 2.74-1.05.56 1.42.21 2.47.1 2.73.65.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.94.68 1.9v2.82c0 .28.18.61.69.5A10.26 10.26 0 0022 12.25C22 6.58 17.52 2 12 2z"/></svg></div>  
+      <div>  
+        <div class="about-panel-label">Open Source / Repositories</div>  
+        <div class="about-panel-value">GitHub Org: Dukeinfo<span>Projects: SchoolERP & more</span></div>  
+      </div>  
+    </div>  
+    <div class="about-panel-row">  
+      <div class="about-panel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>  
+      <div>  
+        <div class="about-panel-label">Location</div>  
+        <div class="about-panel-value">Available for remote work<span>& contract opportunities</span></div>  
+      </div>  
+    </div>  
   </div>  
-</div>   
+</div>  
+
+  </div>  
 </section>
 <!-- ============================= SERVICES ============================= -->  
 <section id="services" style="background:var(--bg-soft);">  
@@ -1356,7 +1555,21 @@ footer{
       <h2>Real-World Experience</h2>  
       <p>A selection of web applications, ERPs, and custom sites I've built. Click any card to see technical details.</p>  
     </div>  
-    <div class="projects-grid"> 
+    <div class="projects-grid">  <article class="project-card glass reveal" data-modal="p1">  
+    <div class="project-top">  
+      <span class="project-index">01</span>  
+      <span class="project-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>  
+    </div>  
+    <h3>SchoolERP</h3>  
+    <p class="desc">A major school-management and ERP software handling everything from student administration to complex fee calculations.</p>  
+    <div class="project-stack">  
+      <span class="stack-chip">Laravel</span><span class="stack-chip">PHP</span><span class="stack-chip">MySQL</span><span class="stack-chip">AJAX</span>  
+    </div>  
+    <div class="project-actions">  
+      <a href="https://github.com/Sushantmonga87" class="project-link" onclick="event.stopPropagation()">GitHub</a>  
+    </div>  
+  </article>
+
   <article class="project-card glass reveal" data-modal="p2">  
     <div class="project-top">  
       <span class="project-index">02</span>  
@@ -1396,6 +1609,36 @@ footer{
     <p class="desc">A custom PHP-based web application solving practical community/business communication needs with a reliable MySQL backend.</p>  
     <div class="project-stack">  
       <span class="stack-chip">PHP</span><span class="stack-chip">MySQL</span><span class="stack-chip">JavaScript</span>  
+    </div>  
+    <div class="project-actions">  
+      <a href="[PROJECT_URL_HERE]" class="project-link" onclick="event.stopPropagation()">View Live</a>  
+    </div>  
+  </article>
+
+  <article class="project-card glass reveal" data-modal="p5">  
+    <div class="project-top">  
+      <span class="project-index">05</span>  
+      <span class="project-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>  
+    </div>  
+    <h3>ResearchHive</h3>  
+    <p class="desc">An academic writing service landing page tailored for high conversion, professional branding, and SEO considerations.</p>  
+    <div class="project-stack">  
+      <span class="stack-chip">HTML</span><span class="stack-chip">CSS</span><span class="stack-chip">SEO Integration</span>  
+    </div>  
+    <div class="project-actions">  
+      <a href="[PROJECT_URL_HERE]" class="project-link" onclick="event.stopPropagation()">View Live</a>  
+    </div>  
+  </article>
+
+  <article class="project-card glass reveal" data-modal="p6">  
+    <div class="project-top">  
+      <span class="project-index">06</span>  
+      <span class="project-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>  
+    </div>  
+    <h3>Ashiana Public School</h3>  
+    <p class="desc">An education-sector website featuring structured data, responsive layout, and robust Apache/.htaccess URL rewriting.</p>  
+    <div class="project-stack">  
+      <span class="stack-chip">PHP</span><span class="stack-chip">Apache Config</span><span class="stack-chip">CSS</span>  
     </div>  
     <div class="project-actions">  
       <a href="[PROJECT_URL_HERE]" class="project-link" onclick="event.stopPropagation()">View Live</a>  
@@ -1567,10 +1810,40 @@ footer{
   </div>  
 </section>
 
-<!-- Floating WhatsApp -->
-<a href="https://wa.me/919306226635" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+<!-- Floating WhatsApp Button & Chatbox -->
+<button class="wa-btn" id="waToggle" aria-label="Open WhatsApp Chat">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-</a>
+</button>
+
+<div class="wa-chatbox" id="waChatbox">
+  <div class="wa-header">
+    <div class="wa-profile">
+      <div class="wa-avatar">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" color="#008069"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+      </div>
+      <div class="wa-info">
+        <div class="wa-name">Sushant Monga</div>
+        <div class="wa-status">Typically replies in a few minutes</div>
+      </div>
+    </div>
+    <button class="wa-close" id="waClose">&times;</button>
+  </div>
+  
+  <div class="wa-body">
+    <div class="wa-message">
+      <div class="wa-message-name">Sushant Monga</div>
+      <div class="wa-message-text">Hi there! 👋 I'm available for custom PHP & Laravel projects. How can I help you today?</div>
+      <div class="wa-message-time" id="waTime">Just now</div>
+    </div>
+  </div>
+  
+  <div class="wa-footer">
+    <input type="text" id="waInput" class="wa-input" placeholder="Type a message...">
+    <button class="wa-send" id="waSend" aria-label="Send Message">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
 
 <footer>  
   <div class="container footer-top">  
@@ -1853,6 +2126,56 @@ if(contactForm){
     formSuccess.classList.add('show');  
   });  
 }  
+
+// ---------- WhatsApp Chatbox Logic ----------  
+const waToggle = document.getElementById('waToggle');
+const waChatbox = document.getElementById('waChatbox');
+const waClose = document.getElementById('waClose');
+const waInput = document.getElementById('waInput');
+const waSend = document.getElementById('waSend');
+const waTimeElement = document.getElementById('waTime');
+
+// Set current time for the default message
+const now = new Date();
+const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+if(waTimeElement) waTimeElement.textContent = timeString;
+
+waToggle.addEventListener('click', () => {
+  waChatbox.classList.toggle('open');
+  if(waChatbox.classList.contains('open')) {
+    waInput.focus();
+  }
+});
+
+waClose.addEventListener('click', () => {
+  waChatbox.classList.remove('open');
+});
+
+function sendWhatsAppMessage() {
+  const message = waInput.value.trim();
+  const phoneNumber = "919306226635"; 
+  
+  if(message) {
+    // Encodes the message to ensure spaces & symbols process correctly
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    waInput.value = ''; // clear input after sending
+    waChatbox.classList.remove('open'); // Optionally close chatbox after sending
+  } else {
+    // Just open WhatsApp if no text is typed
+    window.open(`https://wa.me/${phoneNumber}`, '_blank');
+  }
+}
+
+waSend.addEventListener('click', sendWhatsAppMessage);
+
+// Allow pressing 'Enter' to send
+waInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    sendWhatsAppMessage();
+  }
+});
 </script>
 </body>  
 </html>
