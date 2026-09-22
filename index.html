@@ -1368,13 +1368,19 @@ footer{
     <div class="counter-grid">
       <div class="counter-item reveal">
         <div class="counter-num-wrap">
-          <div class="counter-num" data-target="5">0</div><span class="counter-plus">+</span>
+          <div class="counter-num" data-target="2">0</div><span class="counter-plus">+</span>
         </div>
         <div class="counter-label">Years Experience</div>
       </div>
+           <div class="counter-item reveal">
+        <div class="counter-num-wrap">
+          <div class="counter-num" data-target="10">0</div><span class="counter-plus">+</span>
+        </div>
+        <div class="counter-label">Technologies</div>
+      </div>
       <div class="counter-item reveal">
         <div class="counter-num-wrap">
-          <div class="counter-num" data-target="30">0</div><span class="counter-plus">+</span>
+          <div class="counter-num" data-target="5">0</div><span class="counter-plus">+</span>
         </div>
         <div class="counter-label">Projects Delivered</div>
       </div>
@@ -1559,7 +1565,21 @@ footer{
       <h2>Real-World Experience</h2>  
       <p>A selection of web applications, ERPs, and custom sites I've built. Click any card to see technical details.</p>  
     </div>  
-    <div class="projects-grid"> 
+    <div class="projects-grid">  <article class="project-card glass reveal" data-modal="p1">  
+    <div class="project-top">  
+      <span class="project-index">01</span>  
+      <span class="project-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>  
+    </div>  
+    <h3>SchoolERP</h3>  
+    <p class="desc">A major school-management and ERP software handling everything from student administration to complex fee calculations.</p>  
+    <div class="project-stack">  
+      <span class="stack-chip">Laravel</span><span class="stack-chip">PHP</span><span class="stack-chip">MySQL</span><span class="stack-chip">AJAX</span>  
+    </div>  
+    <div class="project-actions">  
+      <a href="https://github.com/Sushantmonga87" class="project-link" onclick="event.stopPropagation()">GitHub</a>  
+    </div>  
+  </article>
+
   <article class="project-card glass reveal" data-modal="p2">  
     <div class="project-top">  
       <span class="project-index">02</span>  
@@ -1604,6 +1624,37 @@ footer{
       <a href="[PROJECT_URL_HERE]" class="project-link" onclick="event.stopPropagation()">View Live</a>  
     </div>  
   </article>
+
+  <article class="project-card glass reveal" data-modal="p5">  
+    <div class="project-top">  
+      <span class="project-index">05</span>  
+      <span class="project-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>  
+    </div>  
+    <h3>ResearchHive</h3>  
+    <p class="desc">An academic writing service landing page tailored for high conversion, professional branding, and SEO considerations.</p>  
+    <div class="project-stack">  
+      <span class="stack-chip">HTML</span><span class="stack-chip">CSS</span><span class="stack-chip">SEO Integration</span>  
+    </div>  
+    <div class="project-actions">  
+      <a href="[PROJECT_URL_HERE]" class="project-link" onclick="event.stopPropagation()">View Live</a>  
+    </div>  
+  </article>
+
+  <article class="project-card glass reveal" data-modal="p6">  
+    <div class="project-top">  
+      <span class="project-index">06</span>  
+      <span class="project-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>  
+    </div>  
+    <h3>Ashiana Public School</h3>  
+    <p class="desc">An education-sector website featuring structured data, responsive layout, and robust Apache/.htaccess URL rewriting.</p>  
+    <div class="project-stack">  
+      <span class="stack-chip">PHP</span><span class="stack-chip">Apache Config</span><span class="stack-chip">CSS</span>  
+    </div>  
+    <div class="project-actions">  
+      <a href="[PROJECT_URL_HERE]" class="project-link" onclick="event.stopPropagation()">View Live</a>  
+    </div>  
+  </article>
+
 </div>  
 
   </div>  
@@ -1710,11 +1761,11 @@ footer{
     <div class="contact-info-list">  
       <div class="contact-info-item">  
         <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg></div>  
-        <a href="mailto:sushantmonga87@gmail.com" >sushantmonga87@gmail.com</a>  
+        <span>sushantmonga87@gmail.com</span>  
       </div>  
       <div class="contact-info-item">  
         <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg></div>  
-        <a href="tel:+15551234567">93062-26635</a>  
+        <span>93062-26635</span>  
       </div>  
     </div>  
     <div class="contact-socials-alt">  
@@ -1731,7 +1782,8 @@ footer{
   </div>
 
   <div class="contact-form-wrap">  
-    <form id="contactForm" novalidate>  
+    <!-- REPLACE THE ACTION URL WITH YOUR FORMSPREE LINK -->
+    <form id="contactForm" action="https://formspree.io/f/xoevdneo" method="POST" novalidate>  
       <div class="form-row">  
         <div class="form-field">  
           <label for="cf-name">Name</label>  
@@ -1751,7 +1803,7 @@ footer{
         <textarea id="cf-message" name="message" placeholder="Tell me a bit about your project or technical challenge..." required></textarea>  
       </div>  
       <button type="submit" class="btn btn-primary btn-block">  
-        Send message  
+        <span>Send message</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>  
       </button>  
       <p class="form-note">Currently accepting new development projects.</p>  
@@ -1760,8 +1812,8 @@ footer{
       <div class="form-success-icon">  
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>  
       </div>  
-      <h3>Message ready to send</h3>  
-      <p>Thanks for reaching out! (Connect this form to your backend/email service).</p>  
+      <h3>Message sent successfully</h3>  
+      <p>Thanks for reaching out! I'll get back to you as soon as possible.</p>  
     </div>  
   </div>  
 </div>  
@@ -1852,7 +1904,7 @@ footer{
     <div class="footer-heading">Contact</div>  
     <div class="footer-contact-item">  
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg>  
-      <a href="mailto:sushantmonga87@gmail.com">sushantmonga87@gmail.com</a>  
+      <span>sushantmonga87@gmail.com</span>  
     </div>  
     <div class="footer-contact-item">  
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>  
@@ -1863,7 +1915,10 @@ footer{
 
   </div>
   <div class="container footer-bottom">  
-    <span>© 2026 Sushant Monga </span>  
+    <span>© 2026 Sushant Monga. Built with HTML, CSS &amp; JavaScript.</span>  
+    <div class="footer-bottom-links">  
+      <a href="#home">Back to top</a>  
+    </div>  
     <a href="#home" class="back-to-top" aria-label="Back to top">  
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>  
     </a>  
@@ -1929,29 +1984,40 @@ observeReveal(document.querySelectorAll('.reveal'));
 
 // ---------- Number Counter Animation ----------
 const counters = document.querySelectorAll('.counter-num');
-const counterSpeed = 100; // Lower is faster
+const animationDuration = 2500; // Duration in milliseconds (2.5 seconds - change to make it slower/faster)
+
 const counterIO = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
       const counter = entry.target;
       const target = +counter.getAttribute('data-target');
-      
-      const updateCount = () => {
-        const count = +counter.innerText;
-        const inc = target / counterSpeed;
-        if(count < target) {
-          counter.innerText = Math.ceil(count + inc);
-          setTimeout(updateCount, 15);
+      let startTime = null;
+
+      const updateCount = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const progress = timestamp - startTime;
+        
+        // Calculate percentage of completion
+        const percent = Math.min(progress / animationDuration, 1);
+        
+        // Ease-out effect for smoother slowdown at the end
+        const easeOut = percent * (2 - percent);
+        
+        counter.innerText = Math.floor(easeOut * target);
+        
+        if(progress < animationDuration) {
+          window.requestAnimationFrame(updateCount);
         } else {
           counter.innerText = target;
         }
       };
-      updateCount();
+      window.requestAnimationFrame(updateCount);
       observer.unobserve(counter);
     }
   });
 }, { threshold: 0.5 });
 counters.forEach(c => counterIO.observe(c));
+
 
 // ---------- Active nav link on scroll ----------  
 const sections = document.querySelectorAll('section[id]');  
@@ -2094,19 +2160,52 @@ document.querySelectorAll('.project-card').forEach(card => {
 overlay.addEventListener('click', (e) => { if(e.target === overlay) closeModal(); });  
 document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
 
-// ---------- Contact form (front-end demo) ----------  
+// ---------- Formspree AJAX Submission ----------  
 const contactForm = document.getElementById('contactForm');  
 const formSuccess = document.getElementById('formSuccess');
 
 if(contactForm){  
-  contactForm.addEventListener('submit', (e) => {  
+  contactForm.addEventListener('submit', async (e) => {  
     e.preventDefault();  
+    
+    // Validate form
     if(!contactForm.checkValidity()){  
       contactForm.reportValidity();  
       return;  
     }  
-    contactForm.style.display = 'none';  
-    formSuccess.classList.add('show');  
+    
+    // Show Loading state on button
+    const btn = contactForm.querySelector('button[type="submit"]');
+    const btnSpan = btn.querySelector('span');
+    const originalText = btnSpan.innerText;
+    btnSpan.innerText = 'Sending...';
+    btn.disabled = true;
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: {
+            'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        // Success
+        contactForm.style.display = 'none';  
+        formSuccess.classList.add('show'); 
+      } else {
+        // Formspree returned an error
+        alert("Oops! There was a problem sending your message.");
+        btnSpan.innerText = originalText;
+        btn.disabled = false;
+      }
+    } catch (error) {
+      // Network error
+      alert("Oops! Network error. Please try again.");
+      btnSpan.innerText = originalText;
+      btn.disabled = false;
+    }
   });  
 }  
 
