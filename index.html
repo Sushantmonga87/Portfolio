@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Sushant Monga — Full-Stack PHP & Laravel Developer portfolio." />
-<title>Sushant Monga — Full-Stack PHP & Laravel Developer</title>  
+  <title>Sushant Monga — Full-Stack PHP & Laravel Developer</title>  
     <meta  
       name="title"  
       content="Sushant Monga — Full-Stack PHP & Laravel Developer | Web Development"  
@@ -35,7 +35,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />  
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />  
 <link  
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@300;400;500;700;900&display=swap"  
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"  
   rel="stylesheet"  
 />
 
@@ -67,9 +67,10 @@
       font-family: var(--font-body);
       background-color: var(--bg);
       color: var(--text-main);
-      font-size: 15px; /* Slightly smaller base font size */
+      font-size: 15px; 
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
     
     a { text-decoration: none; color: inherit; }
@@ -93,7 +94,7 @@
     }
 
     .section {
-      padding: 100px 0; /* Adjusted padding to avoid excessive gaps */
+      padding: 100px 0; 
     }
     .soft { background-color: var(--bg-soft); }
     .dark { background-color: var(--dark-bg); color: var(--dark-text); }
@@ -110,24 +111,42 @@
     }
 
     .section-heading h2 {
-      font-size: clamp(28px, 4vw, 44px); /* Slightly smaller headings */
+      font-size: clamp(28px, 4vw, 44px); 
       line-height: 1.15;
       font-weight: 700;
     }
     .section-heading.center { text-align: center; margin-bottom: 56px; }
 
     /* =========================================================
-       REVEAL ANIMATIONS
+       REVEAL & SCROLL ANIMATIONS (UPGRADED)
        ========================================================= */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
-    .reveal.in-view {
-      opacity: 1;
-      transform: translateY(0);
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
+    .reveal-left.in-view { opacity: 1; transform: translateX(0); }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .reveal-right.in-view { opacity: 1; transform: translateX(0); }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .reveal-scale.in-view { opacity: 1; transform: scale(1); }
 
     /* =========================================================
        HEADER & NAVIGATION
@@ -137,7 +156,7 @@
       top: 0; left: 0; right: 0;
       background: rgba(250, 250, 250, 0.9);
       backdrop-filter: blur(12px);
-      z-index: 100;
+      z-index: 1000;
       border-bottom: 1px solid var(--border);
     }
     .nav {
@@ -208,7 +227,7 @@
       margin-bottom: 8px;
     }
     .hero-copy h1 {
-      font-size: clamp(34px, 5vw, 52px); /* Smaller hero h1 */
+      font-size: clamp(34px, 5vw, 52px); 
       line-height: 1.1;
       font-weight: 700;
       margin-bottom: 20px;
@@ -287,7 +306,7 @@
     .hero-card {
       position: relative;
       width: 100%;
-      max-width: 380px; /* Reduced max-width to avoid overlap */
+      max-width: 380px;
       aspect-ratio: 1;
       margin: 0 auto;
       display: flex;
@@ -305,7 +324,7 @@
     @keyframes spin { 100% { transform: rotate(360deg); } }
     
     .profile-mark {
-      width: 160px; /* Reduced size */
+      width: 160px;
       height: 160px;
       background: var(--text-main);
       color: var(--bg);
@@ -318,6 +337,7 @@
       font-weight: 700;
       position: relative;
       z-index: 2;
+      box-shadow: var(--shadow-lift);
     }
     .card-label {
       position: absolute;
@@ -355,11 +375,11 @@
     }
 
     /* =========================================================
-       ABOUT SECTION (WITH IMAGE)
+       ABOUT SECTION
        ========================================================= */
     .about-grid {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr; /* Image left, Text right */
+      grid-template-columns: 0.9fr 1.1fr;
       gap: 56px;
       align-items: center;
     }
@@ -378,7 +398,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      aspect-ratio: 4/5; /* Nice portrait ratio */
+      aspect-ratio: 4/5; 
     }
 
     .about-copy p {
@@ -448,7 +468,7 @@
     .service-card p { font-size: 14.5px; color: var(--text-muted); line-height: 1.6; }
 
     /* =========================================================
-       SKILLS SECTION
+       SKILLS GRID
        ========================================================= */
     .skills-grid {
       display: grid;
@@ -489,6 +509,120 @@
       position: relative;
       z-index: 2;
     }
+
+    /* =========================================================
+       NEW: ORBITING TECHNOLOGIES STACK SECTION
+       ========================================================= */
+    .tech-wrapper {
+      position: relative;
+      width: 100%;
+      height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .tech-orbit-container {
+      position: relative;
+      width: 620px;
+      height: 620px;
+    }
+    /* Scale down purely via CSS for mobile */
+    @media (max-width: 768px) {
+      .tech-wrapper { height: 500px; }
+      .tech-orbit-container { transform: scale(0.7); }
+    }
+    @media (max-width: 480px) {
+      .tech-wrapper { height: 400px; }
+      .tech-orbit-container { transform: scale(0.5); }
+    }
+
+    /* Central Hub */
+    .tech-core {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px; height: 120px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.1;
+      z-index: 10;
+      box-shadow: 0 0 40px rgba(79, 70, 229, 0.4);
+    }
+
+    /* Orbit Rings */
+    .tech-ring {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px dashed var(--text-faint);
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+    .ring-1 { width: 260px; height: 260px; }
+    .ring-2 { width: 440px; height: 440px; }
+    .ring-3 { width: 620px; height: 620px; }
+
+    /* Keyframes for orbits */
+    @keyframes orbit-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes orbit-spin-reverse {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+
+    /* Spinners inside the rings */
+    .spinner {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      border-radius: 50%;
+    }
+    .spin-normal { animation: orbit-spin 25s linear infinite; }
+    .spin-slow { animation: orbit-spin 35s linear infinite; }
+    .spin-slower { animation: orbit-spin 45s linear infinite; }
+    
+    .spin-reverse-normal { animation: orbit-spin-reverse 25s linear infinite; }
+    .spin-reverse-slow { animation: orbit-spin-reverse 35s linear infinite; }
+    .spin-reverse-slower { animation: orbit-spin-reverse 45s linear infinite; }
+
+    /* Orbit Badges */
+    .tech-badge {
+      position: absolute;
+      width: 90px; height: 40px;
+      /* Center exactly on the line: shift up/left by half its size */
+      margin-top: -20px; margin-left: -45px;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      color: var(--text-main);
+      border-radius: 100px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 600; font-size: 13px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    
+    /* Absolute Positions on the circle */
+    .pos-top { top: 0; left: 50%; }
+    .pos-bottom { top: 100%; left: 50%; }
+    .pos-left { top: 50%; left: 0; }
+    .pos-right { top: 50%; left: 100%; }
+    
+    /* 6-point Hexagon coordinates for Outer Ring */
+    .pos-hex-1 { top: 0; left: 50%; } /* Top */
+    .pos-hex-2 { top: 25%; left: 93.3%; } /* Top Right */
+    .pos-hex-3 { top: 75%; left: 93.3%; } /* Bottom Right */
+    .pos-hex-4 { top: 100%; left: 50%; } /* Bottom */
+    .pos-hex-5 { top: 75%; left: 6.7%; } /* Bottom Left */
+    .pos-hex-6 { top: 25%; left: 6.7%; } /* Top Left */
 
     /* =========================================================
        MARQUEE
@@ -567,7 +701,10 @@
       justify-content: center;
       overflow: hidden;
       position: relative;
+      transition: transform 0.4s ease;
     }
+    .project:hover .project-visual { transform: scale(0.98); }
+    
     .visual-a { background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); }
     .visual-b { background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%); }
     .visual-c { background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); }
@@ -611,7 +748,7 @@
       max-width: 800px;
       margin: 0 auto;
       border-left: 1px solid var(--border);
-      padding-left: 56px; /* Increased to prevent overlap */
+      padding-left: 56px; 
     }
     .timeline-item {
       position: relative;
@@ -619,11 +756,10 @@
     }
     .timeline-item:last-child { margin-bottom: 0; }
     
-    /* Dot pointer */
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -62px; /* Adjusted based on padding */
+      left: -62px; 
       top: 4px;
       width: 13px; height: 13px;
       border-radius: 50%;
@@ -708,10 +844,10 @@
        CONTACT SECTION & FORMSPREE
        ========================================================= */
     .contact-wrapper {
-      padding:20px;
+      padding: 20px;
       display: grid;
-      grid-template-columns: 1fr 1fr; /* Balanced 50/50 split */
-      gap: 48px; /* Slightly reduced gap so things aren't squished */
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
       background: var(--bg);
       align-items: start;
     }
@@ -737,7 +873,7 @@
     /* Form Styles */
     .contact-form {
       background: var(--bg-soft);
-      padding: 40px; /* Refined padding */
+      padding: 40px; 
       border-radius: 16px;
       width: 100%;
     }
@@ -878,6 +1014,7 @@
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#skills">Skills</a>
+        <a href="#tech-stack">Stack</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
@@ -891,7 +1028,7 @@
          ========================================================= -->
     <section id="home" class="hero">
       <div class="container hero-grid">
-        <div class="hero-copy reveal">
+        <div class="hero-copy reveal-left">
           <p class="eyebrow">FULL-STACK PHP DEVELOPER</p>
           <h2 class="hero-name">Sushant Monga</h2>
           <h1>Building <em>reliable</em> & scalable web applications.</h1>
@@ -905,12 +1042,12 @@
           <div class="quick-stats">
             <div class="stat-box"><strong class="counter-num" data-target="2">0 <span class="plus">+</span></strong><span class="label">Years Experience</span></div>
             <div class="stat-box"><strong class="counter-num" data-target="5">0 <span class="plus">+</span></strong><span class="label">Projects Delivered</span></div>
-             <div class="stat-box"><strong class="counter-num" data-target="10">0 <span class="plus">+</span></strong><span class="label">Technologiesand Platforms</span></div>
-            <div class="stat-box"><strong class="counter-num" data-target="100">0 <span class="plus">%</span></strong><span class="label">Client Satisfaction</span></div>
+            <div class="stat-box"><strong class="counter-num" data-target="10">0 <span class="plus">+</span></strong><span class="label">Technologies</span></div>
+            <div class="stat-box"><strong class="counter-num" data-target="100">0 <span class="plus">%</span></strong><span class="label">Satisfaction</span></div>
           </div>
         </div>
         
-        <div class="hero-card reveal">
+        <div class="hero-card reveal-right">
           <div class="orbit"></div>
           <div class="profile-mark">SM</div>
           <div class="card-label">
@@ -928,15 +1065,15 @@
          ========================================================= -->
     <section id="about" class="section soft">
       <div class="container about-grid">
-        <div class="about-image reveal">
+        <div class="about-image reveal-scale">
           <img src="/img/sushantmonga.jpeg" alt="Sushant Monga">
         </div>
         <div class="about-content">
-          <div class="section-heading reveal" style="text-align: left; margin-bottom: 24px;">
+          <div class="section-heading reveal-right" style="text-align: left; margin-bottom: 24px;">
             <p class="eyebrow">01 — ABOUT ME</p>
             <h2>Logic-minded.<br /><em>Business-driven.</em></h2>
           </div>
-          <div class="about-copy reveal">
+          <div class="about-copy reveal-right">
             <p>
               I am a Full-Stack PHP Developer with practical experience building business websites, education-management systems, custom dashboards, and data-driven web applications.
             </p>
@@ -1018,56 +1155,87 @@
     </section>
 
     <!-- =========================================================
-         SKILLS SECTION
+         SKILLS GRID SECTION
          ========================================================= -->
     <section id="skills" class="section soft">
       <div class="container">
         <div class="section-heading center reveal">
-          <p class="eyebrow">03 — SKILLS</p>
-          <h2>The stack I work <em>with.</em></h2>
+          <p class="eyebrow">03 — CAPABILITIES</p>
+          <h2>My core <em>expertise.</em></h2>
         </div>
         <div class="skills-grid">
-          <div class="skill reveal">
+          <div class="skill reveal-scale">
             <span class="num">01</span>
             <h3>Backend Development</h3>
             <p>Core PHP, Laravel Framework, complex business logic & algorithms.</p>
           </div>
-          <div class="skill reveal">
+          <div class="skill reveal-scale">
             <span class="num">02</span>
             <h3>Databases</h3>
             <p>MySQL, relational schemas, complex queries, and data structuring.</p>
           </div>
-          <div class="skill reveal">
+          <div class="skill reveal-scale">
             <span class="num">03</span>
             <h3>Frontend & UI</h3>
             <p>HTML5, CSS3, JavaScript, AJAX, Bootstrap, and DataTables.</p>
           </div>
-          <div class="skill reveal">
+          <div class="skill reveal-scale">
             <span class="num">04</span>
             <h3>API & Integrations</h3>
             <p>RESTful APIs, JSON parsing, and third-party service connections.</p>
           </div>
-          <div class="skill reveal">
-            <span class="num">05</span>
-            <h3>Infrastructure</h3>
-            <p>Git, GitHub, Apache configs, .htaccess, and cPanel deployments.</p>
-          </div>
-          <div class="skill reveal">
-            <span class="num">06</span>
-            <h3>School ERPs</h3>
-            <p>Custom education systems, fee ledgers, and student administration.</p>
-          </div>
-          <div class="skill reveal">
-            <span class="num">07</span>
-            <h3>Reporting & Data</h3>
-            <p>PDF/Excel database exports, file handling, and dynamic dashboards.</p>
-          </div>
-          <div class="skill reveal">
-            <span class="num">08</span>
-            <h3>Marketing Tech</h3>
-            <p>Meta Ads tracking, lead management CRMs, and SEO fundamentals.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         NEW: ORBITING TECHNOLOGIES SECTION
+         ========================================================= -->
+    <section id="tech-stack" class="section">
+      <div class="container">
+        <div class="section-heading center reveal">
+          <p class="eyebrow">04 — TECHNOLOGIES</p>
+          <h2>The complete <em>Stack.</em></h2>
+        </div>
+        
+        <div class="tech-wrapper reveal-scale">
+          <div class="tech-orbit-container">
+            <!-- Central Hub -->
+            <div class="tech-core">Stack</div>
+
+            <!-- Ring 1 (Small) -->
+            <div class="tech-ring ring-1">
+              <div class="spinner spin-normal">
+                <div class="tech-badge pos-top spin-reverse-normal">PHP</div>
+                <div class="tech-badge pos-bottom spin-reverse-normal">Laravel</div>
+              </div>
+            </div>
+
+            <!-- Ring 2 (Medium) -->
+            <div class="tech-ring ring-2">
+              <div class="spinner spin-reverse-slow">
+                <div class="tech-badge pos-top spin-slow">MySQL</div>
+                <div class="tech-badge pos-right spin-slow">JavaScript</div>
+                <div class="tech-badge pos-bottom spin-slow">HTML5</div>
+                <div class="tech-badge pos-left spin-slow">CSS3</div>
+              </div>
+            </div>
+
+            <!-- Ring 3 (Large - Hexagon layout) -->
+            <div class="tech-ring ring-3">
+              <div class="spinner spin-slower">
+                <div class="tech-badge pos-hex-1 spin-reverse-slower">AJAX</div>
+                <div class="tech-badge pos-hex-2 spin-reverse-slower">Bootstrap</div>
+                <div class="tech-badge pos-hex-3 spin-reverse-slower">cPanel</div>
+                <div class="tech-badge pos-hex-4 spin-reverse-slower">Apache</div>
+                <div class="tech-badge pos-hex-5 spin-reverse-slower">Git</div>
+                <div class="tech-badge pos-hex-6 spin-reverse-slower">APIs</div>
+              </div>
+            </div>
+
           </div>
         </div>
+
       </div>
     </section>
 
@@ -1102,7 +1270,7 @@
       <div class="container">
         <div class="projects-head reveal">
           <div class="section-heading" style="margin-bottom:0;">
-            <p class="eyebrow">04 — SELECTED WORK</p>
+            <p class="eyebrow">05 — SELECTED WORK</p>
             <h2>Projects that show<br /><em>how I build.</em></h2>
           </div>
           <p class="note">
@@ -1111,7 +1279,17 @@
         </div>
         
         <div class="projects-grid">     
-          <article class="project reveal">
+          <article class="project reveal-scale">
+            <div class="project-visual visual-a"><div class="project-number">01</div><span>ERP SYSTEM</span></div>
+            <div class="project-body">
+              <h3>SchoolERP</h3>
+              <p>A major school-management and ERP software handling everything from student administration to complex fee calculations.</p>
+              <div class="tags"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>AJAX</span></div>
+              <a class="project-link" href="https://github.com/Sushantmonga87" target="_blank">View Code ↗</a>
+            </div>
+          </article>
+
+          <article class="project reveal-scale">
             <div class="project-visual visual-b"><div class="project-number">02</div><span>E-COMMERCE</span></div>
             <div class="project-body">
               <h3>Shirtee</h3>
@@ -1121,7 +1299,7 @@
             </div>
           </article>
           
-          <article class="project reveal">
+          <article class="project reveal-scale">
             <div class="project-visual visual-c"><div class="project-number">03</div><span>WEB APP</span></div>
             <div class="project-body">
               <h3>TownTalk</h3>
@@ -1131,7 +1309,7 @@
             </div>
           </article>
 
-          <article class="project reveal">
+          <article class="project reveal-scale">
             <div class="project-visual visual-d"><div class="project-number">04</div><span>FRONTEND</span></div>
             <div class="project-body">
               <h3>Brew House Cafe</h3>
@@ -1150,13 +1328,13 @@
     <section id="experience" class="section soft">
       <div class="container">
         <div class="section-heading reveal">
-          <p class="eyebrow">05 — EXPERIENCE</p>
+          <p class="eyebrow">06 — EXPERIENCE</p>
           <h2>My professional <em>journey.</em></h2>
         </div>
         
         <div class="timeline">
           <!-- Duke Infosys -->
-          <div class="timeline-item reveal">
+          <div class="timeline-item reveal-left">
             <div class="time">JULY 2025 — PRESENT</div>
             <div>
               <h3>Web Development (PHP & Laravel)</h3>
@@ -1171,7 +1349,7 @@
           </div>
           
           <!-- Solitaire Infosys -->
-          <div class="timeline-item reveal">
+          <div class="timeline-item reveal-left">
             <div class="time">JAN 2024 — JULY 2024</div>
             <div>
               <h3>Frontend Development Internship</h3>
@@ -1194,10 +1372,10 @@
     <section id="journey" class="section">
       <div class="container">
         <div class="section-heading center reveal">
-          <p class="eyebrow">06 — GROWTH</p>
+          <p class="eyebrow">07 — GROWTH</p>
           <h2>Evolution as a <em>Developer.</em></h2>
         </div>
-        <div class="journey-track reveal">
+        <div class="journey-track reveal-scale">
           <div class="journey-line"></div>
           
           <div class="journey-step">
@@ -1232,16 +1410,16 @@
          CONTACT SECTION
          ========================================================= -->
     <section id="contact" class="section soft">
-      <div class="container contact-wrapper reveal">
+      <div class="container contact-wrapper reveal-scale">
         <div class="contact-box">
-          <p class="eyebrow">07 — CONTACT</p>
+          <p class="eyebrow">08 — CONTACT</p>
           <h2>Have a project or<br /><em>opportunity?</em></h2>
           <p>
             Looking for a reliable PHP/Laravel developer for a custom application, database integration, or a full-stack project? Let's connect.
           </p>
           <a class="email-link" href="mailto:sushantmonga87@gmail.com">sushantmonga87@gmail.com ↗</a>
           <div class="contact-links">
-            <a href="tel:+919306226635" target="_blank">Call/Whatsapp↗</a>
+            <a href="tel:+919306226635" target="_blank">Call/Whatsapp ↗</a>
             <a href="https://github.com/Sushantmonga87" target="_blank">GitHub ↗</a>
             <a href="https://www.linkedin.com/in/sushant-monga-8a757b227/" target="_blank">LinkedIn ↗</a>
           </div>
@@ -1290,7 +1468,7 @@
   <!-- =========================================================
        WHATSAPP CHATBOX
        ========================================================= -->
-  <button class="wa-btn" id="waToggle" aria-label="Open WhatsApp Chat">
+  <button class="wa-btn reveal-scale" id="waToggle" aria-label="Open WhatsApp Chat">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
   </button>
   
@@ -1336,8 +1514,8 @@
       a.addEventListener('click', () => navLinks.classList.remove('open'));
     });
 
-    // Reveal on Scroll Animation
-    const reveals = document.querySelectorAll('.reveal');
+    // Reveal on Scroll Animation (All Directions)
+    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
     const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
