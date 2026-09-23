@@ -4,40 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Sushant Monga — Full-Stack PHP & Laravel Developer portfolio." />
-  <title>Sushant Monga — Full-Stack PHP & Laravel Developer</title>  
-    <meta  
-      name="title"  
-      content="Sushant Monga — Full-Stack PHP & Laravel Developer | Web Development"  
-    />  
-    <meta  
-      name="description"  
-      content="Portfolio of Sushant Monga, a Full-Stack PHP & Laravel Developer specializing in custom business web applications, ERPs, CRM systems, database architecture, and responsive frontend design."  
-    />  
-    <meta  
-      name="keywords"  
-      content="Sushant Monga, PHP Developer, Laravel Developer, Full Stack Developer, Web Developer, MySQL, Web Development, SchoolERP, Custom PHP"  
-    />  
-    <meta name="author" content="Sushant Monga" /><!-- Favicons -->  
-<link  
-  rel="icon"  
-  href="img/Sushant_monga_logo_light.png"  
-  media="(prefers-color-scheme: light)"  
-  type="image/png"  
-/>  
-<link  
-  rel="icon"  
-  href="img/Sushant_monga_logo_dark.png"  
-  media="(prefers-color-scheme: dark)"  
-  type="image/png"  
-/>
+  <title>Sushant Monga — Full-Stack Web Developer | PHP, Laravel & React</title>
+  <meta name="title" content="Sushant Monga — Full-Stack Web Developer | PHP, Laravel & React">
+  <meta name="description" content="Professional portfolio and curriculum vitae of Sushant Monga, Web Developer specializing in PHP, Laravel, React, WordPress, Shopify, and API integrations.">
+  <meta name="keywords" content="Sushant Monga, Web Developer, PHP Developer, Laravel, MySQL, React JS, Full Stack, WordPress, Shopify, Duke infosys">
+  <meta name="author" content="Sushant Monga">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sushantmonga.in/">
 
-<!-- Ultra Modern Fonts -->  
-<link rel="preconnect" href="https://fonts.googleapis.com" />  
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />  
-<link  
-  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"  
-  rel="stylesheet"  
-/>
+  <!-- Favicons -->
+  <link rel="icon" href="img/Sushant_monga_logo_dark.webp" media="(prefers-color-scheme: light)" type="image/webp">
+  <link rel="icon" href="img/Sushant_monga_logo_dark.webp" media="(prefers-color-scheme: dark)" type="image/webp">
+  <link rel="apple-touch-icon" href="/img/Sushant_monga_logo_dark.webp">
+
+  <!-- Open Graph / LinkedIn -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://sushantmonga.in/">
+  <meta property="og:title" content="Sushant Monga — Web Developer">
+  <meta property="og:description" content="Online curriculum vitae and engineering portfolio of Sushant Monga.">
+  <meta property="og:image" content="https://sushantmonga.in/img/social-preview.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================================
@@ -657,51 +646,51 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* =========================================================
-       PROJECTS SECTION
-       ========================================================= */
-    .projects-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 56px;
-    }
-    .projects-head .note {
-      max-width: 400px;
-      font-size: 15px;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-    @media (max-width: 900px) {
-      .projects-head { flex-direction: column; align-items: flex-start; gap: 24px; }
-    }
+    .projects-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+    .projects-head .note { max-width: 400px; font-size: 15px; color: var(--text-muted); margin-bottom: 12px; }
+    @media (max-width: 900px) { .projects-head { flex-direction: column; align-items: flex-start; gap: 24px; } }
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
-    }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
     @media (max-width: 768px) { .projects-grid { grid-template-columns: 1fr; } }
     
     .project {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      transition: var(--transition);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
     }
+    .project:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border-color: rgba(79, 70, 229, 0.3);
+    }
+
     .project-visual {
       width: 100%;
-      aspect-ratio: 4/3;
+      aspect-ratio: 16/10;
       background: var(--bg-soft);
-      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
       position: relative;
-      transition: transform 0.4s ease;
+      overflow: hidden;
     }
-    .project:hover .project-visual { transform: scale(0.98); }
     
+    /* Fake Browser Header in Image Placeholder */
+    .browser-bar {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 30px; background: rgba(0,0,0,0.05);
+      display: flex; align-items: center; padding: 0 16px; gap: 6px;
+    }
+    .browser-bar i { width: 10px; height: 10px; border-radius: 50%; background: rgba(0,0,0,0.2); }
+    .browser-bar i:nth-child(1) { background: #FF5F56; }
+    .browser-bar i:nth-child(2) { background: #FFBD2E; }
+    .browser-bar i:nth-child(3) { background: #27C93F; }
+
     .visual-a { background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); }
     .visual-b { background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%); }
     .visual-c { background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); }
@@ -710,33 +699,91 @@
     .visual-f { background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%); }
     
     .project-visual span {
-      font-family: var(--font-heading);
-      font-size: 20px;
-      font-weight: 700;
-      color: rgba(0,0,0,0.4);
-      letter-spacing: 0.1em;
+      font-family: var(--font-heading); font-size: 24px; font-weight: 700;
+      color: rgba(0,0,0,0.3); letter-spacing: 0.1em; margin-top: 15px;
+      transition: transform 0.4s ease;
     }
-    .project-number {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text-faint);
-      margin-bottom: -12px;
-    }
+    .project:hover .project-visual span { transform: scale(1.1); color: rgba(0,0,0,0.5);}
+
+    .project-body { padding: 32px; display: flex; flex-direction: column; flex-grow: 1; }
     .project-body h3 { font-size: 22px; margin-bottom: 8px; }
-    .project-body p { font-size: 14.5px; color: var(--text-muted); margin-bottom: 16px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .project-body p { font-size: 14.5px; color: var(--text-muted); margin-bottom: 24px; flex-grow: 1; }
+    
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
     .tags span {
-      font-size: 12px; font-weight: 600;
-      padding: 6px 10px; border-radius: 4px;
+      font-size: 12px; font-weight: 600; padding: 6px 10px; border-radius: 4px;
       background: var(--bg-soft); color: var(--text-muted);
     }
-    .project-link {
-      font-size: 13.5px; font-weight: 700; text-transform: uppercase;
-      color: var(--text-main); border-bottom: 1px solid var(--text-main);
-      padding-bottom: 2px; transition: var(--transition);
-      display: inline-block;
+    .project-actions { display: flex; gap: 12px; align-items: center; }
+    
+    .btn-outline {
+      padding: 10px 20px; font-size: 13.5px; font-weight: 700; border-radius: 100px;
+      border: 1px solid var(--border); color: var(--text-main); cursor: pointer;
+      transition: var(--transition); background: transparent; display: inline-flex; align-items: center; gap: 6px;
     }
-    .project-link:hover { color: var(--accent); border-color: var(--accent); }
+    .btn-outline:hover { background: var(--text-main); color: #fff; border-color: var(--text-main); }
+
+    /* =========================================================
+       RICH MODAL SYSTEM
+       ========================================================= */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(17, 24, 39, 0.8); backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px; opacity: 0; visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+    
+    .modal {
+      width: 100%; max-width: 960px; max-height: 90vh;
+      background: var(--bg); border-radius: 20px;
+      display: flex; overflow: hidden; box-shadow: var(--shadow-lift);
+      transform: scale(0.96) translateY(10px); transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.3, 1);
+    }
+    .modal-overlay.open .modal { transform: scale(1) translateY(0); }
+    
+    @media (max-width: 768px) { .modal { flex-direction: column; overflow-y: auto; } }
+
+    .modal-left {
+      width: 40%; display: flex; align-items: center; justify-content: center;
+      position: relative; padding: 40px;
+    }
+    @media (max-width: 768px) { .modal-left { width: 100%; height: 200px; flex-shrink: 0; } }
+    .modal-left span { font-family: var(--font-heading); font-size: 28px; font-weight: 700; color: rgba(0,0,0,0.3); text-align: center; }
+
+    .modal-right {
+      width: 60%; padding: 48px; overflow-y: auto; max-height: 90vh;
+      position: relative; background: var(--bg);
+    }
+    @media (max-width: 768px) { .modal-right { width: 100%; padding: 32px 24px; overflow-y: visible;} }
+    
+    .modal-close {
+      position: absolute; top: 24px; right: 24px;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--bg-soft); color: var(--text-main); border: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: transform 0.2s ease, background 0.2s ease; z-index: 10;
+    }
+    .modal-close:hover { transform: rotate(90deg); background: #e5e7eb; }
+    
+    .modal-right h3 { font-size: 32px; margin-bottom: 8px; padding-right: 40px; }
+    .modal-desc { font-size: 16px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+    
+    .modal-meta { display: flex; gap: 24px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); flex-wrap: wrap;}
+    .modal-meta div { font-size: 14px; color: var(--text-main); }
+    .modal-meta strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-faint); margin-bottom: 4px; }
+    
+    .modal-section-title { font-family: var(--font-heading); font-size: 20px; font-weight: 700; margin-bottom: 12px; margin-top: 32px; }
+    .modal-text { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; }
+    
+    .modal-features { margin-bottom: 32px; list-style: none; padding: 0; }
+    .modal-features li { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; color: var(--text-muted); padding: 6px 0; }
+    .modal-features li svg { width: 18px; height: 18px; margin-top: 2px; color: var(--accent); flex-shrink: 0; }
+    
+    .modal-right .tags { margin-top: 16px; margin-bottom: 32px; }
+    
+    .modal-footer { margin-top: 40px; display: flex; gap: 16px; }
 
     /* =========================================================
        EXPERIENCE SECTION (TIMELINE)
@@ -745,7 +792,7 @@
       max-width: 800px;
       margin: 0 auto;
       border-left: 1px solid var(--border);
-      padding-left: 56px; 
+      padding-left: 50px; 
     }
     .timeline-item {
       position: relative;
@@ -756,7 +803,7 @@
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -62px; 
+      left: -65px; 
       top: 4px;
       width: 13px; height: 13px;
       border-radius: 50%;
@@ -1030,7 +1077,7 @@
        ========================================================= -->
   <header class="header">
     <nav class="nav container">
-      <a class="logo" href="#home">SM<span>.</span></a>
+      <a class="logo" href="#home"><img style="width: auto; height: 100px;" src="./img/Sushant_monga_logo_light.png" alt=""></a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
       <div class="nav-links" id="navLinks">
         <a href="#home">Home</a>
@@ -1285,7 +1332,7 @@
     <!-- =========================================================
          PROJECTS SECTION
          ========================================================= -->
-    <section id="projects" class="section">
+   <section id="projects" class="section soft">
       <div class="container">
         <div class="projects-head reveal">
           <div class="section-heading" style="margin-bottom:0;">
@@ -1298,48 +1345,65 @@
         </div>
         
         <div class="projects-grid">     
-          <article class="project reveal-scale">
-            <div class="project-visual visual-a"><div class="project-number">01</div><span>ERP SYSTEM</span></div>
-            <div class="project-body">
-              <h3>SchoolERP</h3>
-              <p>A major school-management and ERP software handling everything from student administration to complex fee calculations.</p>
-              <div class="tags"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>AJAX</span></div>
-              <a class="project-link" href="https://github.com/Sushantmonga87" target="_blank">View Code ↗</a>
-            </div>
-          </article>
+          
 
-          <article class="project reveal-scale">
-            <div class="project-visual visual-b"><div class="project-number">02</div><span>E-COMMERCE</span></div>
+          <!-- Project 2 -->
+          <article class="project reveal-scale" data-modal="p2">
+            <div class="project-visual visual-b">
+              <div class="browser-bar"><i></i><i></i><i></i></div>
+              <div class="project-number">02</div><span>E-COMMERCE</span>
+            </div>
             <div class="project-body">
               <h3>Shirtee</h3>
               <p>A dynamic e-commerce web application focused on T-shirt retail, featuring a responsive UI and full database integration.</p>
               <div class="tags"><span>PHP</span><span>MySQL</span><span>JavaScript</span></div>
-              <a class="project-link" href="#">View Project ↗</a>
+              <div class="project-actions">
+                <button class="btn-outline">View Details ↗</button>
+              </div>
             </div>
           </article>
           
-          <article class="project reveal-scale">
-            <div class="project-visual visual-c"><div class="project-number">03</div><span>WEB APP</span></div>
+          <!-- Project 3 -->
+          <article class="project reveal-scale" data-modal="p3">
+            <div class="project-visual visual-c">
+              <div class="browser-bar"><i></i><i></i><i></i></div>
+              <div class="project-number">03</div><span>WEB APP</span>
+            </div>
             <div class="project-body">
               <h3>TownTalk</h3>
               <p>A custom PHP-based web application solving practical community/business communication needs with a reliable MySQL backend.</p>
               <div class="tags"><span>PHP</span><span>MySQL</span><span>JavaScript</span></div>
-              <a class="project-link" href="#">View Project ↗</a>
+              <div class="project-actions">
+                <button class="btn-outline">View Details ↗</button>
+              </div>
             </div>
           </article>
 
-          <article class="project reveal-scale">
-            <div class="project-visual visual-d"><div class="project-number">04</div><span>FRONTEND</span></div>
+          <!-- Project 4 -->
+          <article class="project reveal-scale" data-modal="p4">
+            <div class="project-visual visual-d">
+              <div class="browser-bar"><i></i><i></i><i></i></div>
+              <div class="project-number">04</div><span>FRONTEND</span>
+            </div>
             <div class="project-body">
               <h3>Brew House Cafe</h3>
               <p>A modern, responsive business website developed for a restaurant/cafe, focusing on user-friendly presentation.</p>
               <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-              <a class="project-link" href="#">View Project ↗</a>
+              <div class="project-actions">
+                <button class="btn-outline">View Details ↗</button>
+              </div>
             </div>
           </article>
+
         </div>
       </div>
     </section>
+
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal" id="modalContent">
+        <!-- Content gets injected by JavaScript here -->
+      </div>
+    </div>
 
     <!-- =========================================================
          EXPERIENCE SECTION (TIMELINE)
@@ -1348,7 +1412,7 @@
       <div class="container">
         <div class="section-heading reveal">
           <p class="eyebrow">06 — EXPERIENCE</p>
-          <h2>My professional <em>journey.</em></h2>
+          <h2 style="margin-bottom:40px;" >My professional <em>journey.</em></h2>
         </div>
         
         <div class="timeline">
@@ -1651,6 +1715,141 @@
       });
     }, { threshold: 0.5 });
     counters.forEach(c => counterIO.observe(c));
+
+    const projectData = {  
+      p1: {  
+        title: 'SchoolERP',  
+        type: 'ERP SYSTEM',
+        visualClass: 'visual-a',
+        role: 'Lead Backend Developer',
+        timeline: '6 Months',
+        desc: 'A major school-management and ERP software built using Laravel, handling everything from student administration to complex fee calculations.',  
+        challenge: 'The institution needed a unified system to manage complex quarter-based fee structures, dynamic concessions, and real-time student tracking without relying on multiple scattered spreadsheets.',
+        features: [  
+          'Fee management, Main & Pocket Money ledgers, and dynamic fee receipts.',  
+          'Complex business logic: Quarter-based filtering, tuition & transport fee calculations.',  
+          'Authentication, session-based workflows, and secure database migrations via Laravel.',  
+          'DataTables integration, robust reporting, and PDF/Excel database exports.'
+        ],  
+        stack: ['Laravel', 'PHP', 'MySQL', 'AJAX', 'DataTables'],  
+        github: 'https://github.com/Sushantmonga87',  
+        live: '#'  
+      },  
+      p2: {  
+        title: 'Shirtee',  
+        type: 'E-COMMERCE',
+        visualClass: 'visual-b',
+        role: 'Full-Stack Developer',
+        timeline: '2 Months',
+        desc: 'A dynamic e-commerce web application focused on T-shirt retail, featuring a responsive UI and full database integration.',  
+        challenge: 'Building a custom e-commerce solution from scratch to allow flexible product management and seamless checkout experiences without relying on heavy platforms.',
+        features: [  
+          'Custom shopping cart functionality built in core PHP.',  
+          'Interactive product presentation and fully responsive layout.',  
+          'Backend database integration via MySQL for inventory tracking and ordering.'
+        ],  
+        stack: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],  
+        github: 'https://github.com/Sushantmonga87',  
+        live: '#'  
+      },  
+      p3: {  
+        title: 'TownTalk',  
+        type: 'WEB APP',
+        visualClass: 'visual-c',
+        role: 'Web Developer',
+        timeline: '1.5 Months',
+        desc: 'A custom PHP-based web application solving practical community and business communication needs with a reliable MySQL backend.',  
+        challenge: 'Creating a fast, lightweight platform for users to communicate effectively, requiring a robust database schema to handle messages and user data securely.',
+        features: [  
+          'Practical custom web application logic and user authentication.',  
+          'Seamless MySQL database integration for managing real-time application data.',  
+          'Client-side interactions and form handling via raw JavaScript.'
+        ],  
+        stack: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],  
+        github: 'https://github.com/Sushantmonga87',  
+        live: '#'  
+      },  
+      p4: {  
+        title: 'Brew House Cafe',  
+        type: 'FRONTEND',
+        visualClass: 'visual-d',
+        role: 'Frontend Designer',
+        timeline: '3 Weeks',
+        desc: 'A modern, responsive business website developed for a restaurant/cafe, focusing on user-friendly presentation and brand identity.',  
+        challenge: 'Translating visual brand guidelines into a functional, highly responsive digital layout that looks stunning on mobile devices.',
+        features: [  
+          'Modern visual design with clean typography and aesthetic spacing.',  
+          'Fully responsive UI layout optimized for mobile and desktop users.',  
+          'Lightweight vanilla JavaScript for smooth frontend interactions.'
+        ],  
+        stack: ['HTML5', 'CSS3', 'JavaScript', 'Responsive UI'],  
+        github: 'https://github.com/Sushantmonga87',  
+        live: '#'  
+      }
+    };
+
+    const overlay = document.getElementById('modalOverlay');  
+    const modalContent = document.getElementById('modalContent');  
+    const checkSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+
+    function openModal(id){  
+      const p = projectData[id];  
+      if(!p) return;  
+      
+      modalContent.innerHTML = `  
+        <div class="modal-left ${p.visualClass}">
+          <span>${p.type}</span>
+        </div>
+        <div class="modal-right">
+          <button class="modal-close" id="modalCloseBtn" aria-label="Close">&times;</button>  
+          <h3>${p.title}</h3>  
+          <p class="modal-desc">${p.desc}</p>  
+          
+          <div class="modal-meta">
+            <div><strong>Role</strong>${p.role}</div>
+            <div><strong>Timeline</strong>${p.timeline}</div>
+          </div>
+
+          <div class="modal-section-title">The Challenge</div>
+          <p class="modal-text">${p.challenge}</p>
+
+          <div class="modal-section-title">Key Features</div>  
+          <ul class="modal-features">  
+            ${p.features.map(f => `<li>${checkSvg}<span>${f}</span></li>`).join('')}  
+          </ul>  
+          
+          <div class="modal-section-title">Tech Stack</div>  
+          <div class="tags">  
+            ${p.stack.map(s => `<span>${s}</span>`).join('')}  
+          </div>  
+          
+          <div class="modal-footer">  
+            <a href="${p.github}" target="_blank" class="btn btn-primary">View Code On GitHub</a>  
+          </div>  
+        </div>
+      `;  
+      
+      overlay.classList.add('open');  
+      document.body.style.overflow = 'hidden';  
+      document.getElementById('modalCloseBtn').addEventListener('click', closeModal);  
+    }
+
+    function closeModal(){  
+      overlay.classList.remove('open');  
+      document.body.style.overflow = '';  
+    }
+
+    document.querySelectorAll('.project').forEach(card => {  
+      const btn = card.querySelector('.btn-outline');
+      if(btn) {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal(card.dataset.modal);
+        });
+      }
+    });  
+    overlay.addEventListener('click', (e) => { if(e.target === overlay) closeModal(); });  
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
 
     // Formspree AJAX Submission
     const contactForm = document.getElementById('contactForm');  
