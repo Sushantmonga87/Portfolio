@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f7f6f1">
   <meta name="description" content="Sushant Monga is a full-stack PHP and Laravel developer in Mohali, India, building dependable web applications, education platforms, and business tools.">
   <meta name="keywords" content="Sushant Monga, PHP Developer, Laravel, MySQL, JavaScript, Web Developer, Mohali">
@@ -336,6 +336,7 @@
     .sharebills-dashboard {
       position: relative;
       z-index: 1;
+      display: block;
       overflow: hidden;
       border: 1px solid rgba(247, 246, 241, .24);
       border-radius: 7px;
@@ -352,7 +353,7 @@
     .app-showcase-header h3 em { color: var(--lime); font-family: var(--serif); font-weight: 400; }
     .app-showcase-header p { max-width: 410px; margin: 0; color: rgba(247, 246, 241, .7); font-size: 13px; }
     .app-phones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; align-items: start; }
-    .app-phone-card { min-width: 0; text-align: center; }
+    .app-phone-card { min-width: 0; margin: 0; text-align: center; }
     .app-phone-frame {
       position: relative;
       width: min(100%, 190px);
@@ -443,6 +444,7 @@
     .art-cafe { background: #eae5d8; }
     .art-sharebills { background: #dce8df; }
     .art-vibely { background: #e8def0; }
+    .art-glam { background: #f0e0e0; }
     .art-window {
       position: relative;
       z-index: 1;
@@ -469,7 +471,7 @@
     .vibely-brand-mark { display: grid; width: 17px; height: 17px; place-items: center; border-radius: 6px; background: #755c91; color: white; font-family: var(--serif); font-size: 12px; }
     .vibely-stories { display: flex; justify-content: space-between; gap: 7px; margin-top: 11px; }
     .vibely-story { display: grid; justify-items: center; gap: 3px; color: var(--muted); font-size: 6px; }
-    .vibely-avatar { display: grid; width: 25px; height: 25px; place-items: center; border: 2px solid #fbfaf6; border-radius: 50%; outline: 1px solid #9a7cb4; background: #eadcf6; color: #49365b; font-size: 8px; font-weight: 700; }
+    .vibely-avatar { display: grid; width: 25px; height: 25px; place-items: center; border: 2px solid #fbfaf6; border-radius: 50%; outline: 1px solid #9a7cb4; background: #eadcf6; color: #49365b; font-size: 8px; font-weight: 700; font-style: normal; }
     .vibely-post { display: grid; grid-template-columns: 30px 1fr; gap: 8px; margin-top: 10px; padding: 8px; border: 1px solid rgba(73, 54, 91, .1); border-radius: 5px; background: white; }
     .vibely-post .vibely-avatar { width: 25px; height: 25px; outline: 0; }
     .vibely-post-copy { display: grid; align-content: center; gap: 4px; color: #49365b; font-size: 7px; }
@@ -515,6 +517,7 @@
       color: var(--green-dark);
       font-size: 11px;
       font-weight: 600;
+      white-space: nowrap;
       transition: color .2s ease, background .2s ease, border-color .2s ease;
     }
     .project-live-link:hover { border-color: var(--green-dark); background: var(--green-dark); color: white; }
@@ -930,6 +933,119 @@ body { overflow-wrap: break-word; }
   .project-card:hover, .process-step:hover, .app-phone-card:hover .app-phone-frame,
   .sharebills-dashboard:hover { transform: none; }
 }
+
+/* ===== Extra responsive polish (tablet + mobile) ===== */
+img, video, svg { max-width: 100%; height: auto; }
+.site-header { padding-top: env(safe-area-inset-top, 0px); }
+.site-footer { padding-bottom: calc(22px + env(safe-area-inset-bottom, 0px)); }
+.nav-cta, .button-primary, .sharebills-secondary, .filter-button,
+.project-open, .project-live-link, .menu-toggle { touch-action: manipulation; }
+
+/* Large tablets / small laptops */
+@media (max-width: 1100px) {
+  .container { width: min(var(--page), calc(100% - 56px)); }
+  .hero-grid { gap: 48px; }
+  .stack-group { grid-template-columns: 54px minmax(130px, .7fr) 1.3fr; }
+  .app-phones { gap: 14px; }
+}
+
+/* Tablets (portrait) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .container { width: calc(100% - 48px); }
+  .hero-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .hero-title { font-size: clamp(36px, 6.4vw, 52px); }
+  .portrait-wrap { width: 100%; margin-inline: 0; justify-self: end; }
+  .portrait-frame { aspect-ratio: .79; }
+  .tag-one { left: -14px; } .tag-two { right: -14px; } .tag-three { left: -10px; }
+  .portrait-caption { right: -10px; }
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .project-art { min-height: 210px; }
+  .project-art::before { width: 220px; height: 220px; }
+  .project-art::after { width: 310px; height: 310px; }
+  .project-meta { flex-wrap: wrap; }
+  .project-links { width: 100%; justify-content: flex-start; }
+  .app-phones { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .app-phone-frame { width: min(100%, 140px); }
+  .process-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .process-step { padding: 25px 16px 20px 0; border-top: 0; }
+  .process-step + .process-step { padding-left: 18px; border-left: 1px solid var(--line); }
+  .process-step + .process-step::after { left: 18px; top: -4px; }
+  .process-step::after { top: -4px; left: 0; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact-copy > p:not(.section-label) { max-width: 520px; }
+}
+
+/* Stacked layouts at 800px and below */
+@media (max-width: 800px) {
+  .hero-copy, .hero-description { max-width: 100%; }
+  .hero-actions { gap: 18px; }
+  .sharebills-copy, .sharebills-description { max-width: 100%; }
+  .sharebills-visual { padding-bottom: 28px; }
+  .dashboard-caption { bottom: 0; }
+  .app-phones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-grid { grid-template-columns: 1fr; }
+  .project-meta { flex-wrap: wrap; }
+  .project-links { margin-left: auto; }
+  .service-panel-footer { flex-direction: column; align-items: flex-start; }
+  .stack-group { grid-template-columns: 1fr; gap: 10px; min-height: 0; padding: 20px 0; }
+  .stack-group-top { justify-content: flex-start; }
+  .tech-list { justify-content: flex-start; }
+  .contact-form { padding: 26px 20px; }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .container { width: calc(100% - 32px); }
+  .section { padding: 68px 0; }
+  .hero { padding: 44px 0 56px; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+  .hero-actions .button-primary { width: 100%; }
+  .portrait-wrap { width: min(86%, 320px); }
+  .about-copy p:first-child { font-size: 17px; }
+  .sharebills-actions { flex-direction: column; align-items: stretch; }
+  .sharebills-actions .button-primary,
+  .sharebills-actions .sharebills-secondary { width: 100%; }
+  .sharebills-capabilities { grid-template-columns: 1fr; }
+  .app-phones { column-gap: 12px; }
+  .app-phone-frame { width: min(100%, 150px); }
+  .app-phone-label { font-size: 11px; }
+  .filters { flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding: 0 16px 6px;
+            scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .filters::-webkit-scrollbar { display: none; }
+  .filter-button { flex: 0 0 auto; padding: 10px 14px; }
+  .project-art { min-height: 220px; }
+  .project-art::before { width: 200px; height: 200px; }
+  .project-art::after { width: 280px; height: 280px; }
+  .art-window { width: 72%; }
+  .project-links { width: 100%; justify-content: space-between; margin-left: 0; }
+  .project-open { width: 44px; height: 44px; }
+  .project-live-link { min-height: 44px; }
+  .service-tab { min-height: 68px; }
+  .service-panel h3 { font-size: 27px; }
+  .form-grid { grid-template-columns: 1fr; gap: 0; }
+  .submit-button { width: 100%; }
+  .contact-detail { flex-wrap: wrap; }
+  .contact-details .contact-detail span:first-child { min-width: 100px; }
+  .project-dialog { width: calc(100% - 24px); max-height: 88vh; padding: 22px 18px; }
+  .dialog-close { width: 44px; height: 44px; }
+  .timeline-item { padding: 20px 0; }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .container { width: calc(100% - 24px); }
+  .hero-title { font-size: 32px; }
+  .section-title { font-size: 30px; }
+  .app-phone-frame { width: min(100%, 130px); }
+  .service-tab-title { font-size: 10px; }
+  .nav-links { padding-inline: 16px; }
+}
+
+/* Landscape phones: avoid oversized hero */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero { min-height: unset; }
+  .nav-links { max-height: calc(100svh - 68px); overflow-y: auto; }
+}
   </style>
 </head>
 <body>
@@ -983,8 +1099,8 @@ body { overflow-wrap: break-word; }
         </div>
       </div>
     </section>
-    
- <section class="section about-section" id="about">
+
+    <section class="section about-section" id="about">
       <div class="container about-grid">
         <div class="about-aside">
           <div class="about-aside-content reveal reveal-left">
@@ -1103,14 +1219,14 @@ body { overflow-wrap: break-word; }
             <h3>Reliable data flows, connected to the tools you use.</h3>
             <p>From a considered database structure to practical integrations, keep application information consistent, accessible, and ready to use.</p>
             <ul class="service-deliverables"><li>MySQL data models and queries</li><li>REST API and AJAX integrations</li><li>Search, summaries, and reporting</li><li>PDF and spreadsheet exports</li></ul>
-            <div class="service-panel-footer"><div class="service-tools" aria-label="Example technologies"><span>MySQL</span><span>REST APIs</span><span>AJAX</span></div><a class="service-panel-link" href="#">Talk through an integration ↗</a></div>
+            <div class="service-panel-footer"><div class="service-tools" aria-label="Example technologies"><span>MySQL</span><span>REST APIs</span><span>AJAX</span></div><a class="service-panel-link" href="#contact">Talk through an integration ↗</a></div>
           </article>
           <article class="service-panel" id="service-panel-sites" role="tabpanel" aria-labelledby="service-tab-sites" tabindex="0" hidden>
             <p class="service-panel-kicker">04 / Make the first impression work</p>
             <h3>Websites that feel considered on every screen.</h3>
             <p>Responsive websites and storefront experiences with clear content, careful visual details, and dependable support after launch.</p>
             <ul class="service-deliverables"><li>Mobile-friendly page layouts</li><li>Shopify and WordPress updates</li><li>Interface improvements and fixes</li><li>Launch support and maintenance</li></ul>
-            <div class="service-panel-footer"><div class="service-tools" aria-label="Example technologies"><span>HTML &amp; CSS</span><span>JavaScript</span><span>Shopify</span></div><a class="service-panel-link" href="#">Discuss a website ↗</a></div>
+            <div class="service-panel-footer"><div class="service-tools" aria-label="Example technologies"><span>HTML &amp; CSS</span><span>JavaScript</span><span>Shopify</span></div><a class="service-panel-link" href="#contact">Discuss a website ↗</a></div>
           </article>
         </div>
       </div>
@@ -1163,6 +1279,12 @@ body { overflow-wrap: break-word; }
               <div class="art-window"><div class="window-bar"><i></i><i></i><i></i></div><div class="window-content"><span class="mock-label">Hospitality · Website</span><span class="mock-title">A warm welcome, online.</span><div class="mock-lines"><i></i><i></i><i></i></div></div></div>
             </div>
             <div class="project-meta"><div><h3>Brew House Cafe</h3><p>Hospitality website · HTML, CSS, JavaScript</p><p class="project-brief">A responsive cafe website with a warm visual identity and a straightforward experience on mobile and desktop.</p></div><button class="project-open" type="button" aria-label="View Brew House Cafe project details" data-project="brew-house">↗</button></div>
+          </article>
+          <article class="project-card reveal reveal-scale" data-category="website">
+            <div class="project-art art-glam" aria-hidden="true">
+              <div class="art-window"><div class="window-bar"><i></i><i></i><i></i></div><div class="window-content"><span class="mock-label">Beauty · Website</span><span class="mock-title">Glam, made effortless.</span><div class="mock-lines"><i></i><i></i><i></i></div></div></div>
+            </div>
+            <div class="project-meta"><div><h3>Glam by Anmi</h3><p>Business website · React JS, Cloudflare, Firebase</p><p class="project-brief">A fast, responsive React website for Glam by Anmi, hosted on Cloudflare with Firebase powering its data and backend services.</p></div><div class="project-links"><button class="project-open" type="button" aria-label="View Glam by Anmi project details" data-project="glambyanmi">↗</button><a class="project-live-link" href="https://glambyanmi.in/" target="_blank" rel="noreferrer" aria-label="Visit Glam by Anmi live website">Visit site ↗</a></div></div>
           </article>
         </div>
       </div>
@@ -1240,9 +1362,9 @@ body { overflow-wrap: break-word; }
       </div>
     </section>
 
-    <section class="section" id="">
-      <div class="container -grid">
-        <div class="-copy reveal reveal-left">
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal reveal-left">
           <p class="section-label">Get in touch</p>
           <h2 class="section-title">Have something in <em>mind?</em></h2>
           <p>Have an idea, a project, or a tricky workflow that could use a better tool? I’d love to hear what you’re working on.</p>
@@ -1262,7 +1384,10 @@ body { overflow-wrap: break-word; }
             <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="How should I address you?" required></div>
             <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
           </div>
-          <div class="field"><label for="subject">What’s this about?</label><input id="subject" name="subject" type="text" placeholder="A project, an opportunity..." required></div>
+          <div class="form-grid">
+            <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9+()\-\s]{7,20}" title="Enter a valid phone number, e.g. +91 98765 43210" placeholder="+91 98765 43210"></div>
+            <div class="field"><label for="subject">What’s this about?</label><input id="subject" name="subject" type="text" placeholder="A project, an opportunity..." required></div>
+          </div>
           <div class="field"><label for="message">A little more detail</label><textarea id="message" name="message" placeholder="Tell me a little about what you have in mind..." required></textarea></div>
           <button class="button-primary submit-button" type="submit"><span>Send your message</span><span class="arrow" aria-hidden="true">↗</span></button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
@@ -1304,7 +1429,7 @@ body { overflow-wrap: break-word; }
     });
     navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 800) closeMenu();
+      if (window.innerWidth > 980) closeMenu();
     });
 
     document.getElementById('year').textContent = String(new Date().getFullYear());
@@ -1439,6 +1564,20 @@ body { overflow-wrap: break-word; }
           'Lightweight interactions using vanilla JavaScript.'
         ],
         stack: ['HTML5', 'CSS3', 'JavaScript', 'Responsive UI']
+      },
+      glambyanmi: {
+        category: 'Website · Business',
+        title: 'Glam by Anmi',
+        role: 'Full-stack developer',
+        description: 'A modern, responsive website built with React and deployed on Cloudflare, with Firebase handling data and backend services.',
+        features: [
+          'Component-based React interface with smooth, responsive layouts.',
+          'Firebase for data storage and backend services.',
+          'Fast global delivery and hosting through Cloudflare.',
+          'Optimised for mobile, tablet, and desktop visitors.'
+        ],
+        stack: ['React JS', 'Cloudflare', 'Firebase', 'Responsive UI'],
+        live: 'https://glambyanmi.in/'
       }
     };
 
